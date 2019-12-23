@@ -1,0 +1,128 @@
+/* Fonts */
+@import url('https://fonts.googleapis.com/css?family=Playfair+Display|Raleway&display=swap');
+
+/* Variables */
+$background: #fafafa;
+$primary: #da2d2d;
+$primary-hover:#B42525;
+$text1: #3a3a3a;
+$footer:#212121;
+
+/* Global Styling */
+body {
+    padding: 0px;
+    margin: 0px auto;
+    background: $background;
+    font-family: Raleway;
+    line-height: 2;
+}
+
+h1 {
+    font-size: 40px;
+    font-family: Playfair Display;
+    font-weight: bold;
+}
+
+h5 {
+    font-weight: 600;
+}
+
+.container-fluid {
+    padding: 0 !important;
+}
+
+/* Navigation */
+.arteeNav {
+    padding: 20px;
+    background: #ffffff !important;
+    color: $text1;
+    font-weight: bold;
+    z-index: 1;
+    box-shadow: 0px 1px 10px #9c9c9c;
+}
+
+.nav-item {
+    padding: 5px 25px;
+}
+
+.logo {
+    width: 120px;
+}
+
+/* Hero Section */
+.hero {
+    background-image: url('../images/hero.png');
+    background-color: $primary;
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: #ffffff;
+    height: 100vh;
+    position: relative;
+    z-index: 0;
+}
+
+.desc {
+    position: absolute;
+    bottom: 0;
+    left: 20;
+    margin-bottom: 60px;
+}
+
+.titleHead {
+    font-size: 4em;
+}
+
+.tagHead {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+
+/* News and Updates */
+.news {
+    margin-top: 100px;
+}
+
+.btn-artee {
+    background: $primary;
+    color: #ffffff;
+    padding: 5px 25px;
+    border-radius: 0px;
+    font-size: 12px;
+    font-weight: 600;
+    transition: 0.5s;
+}
+
+.btn-artee:hover {
+    color: #ffffff;
+    background: $primary-hover;
+}
+
+.grey {
+    background: #E3E3E3;
+    width: 100%;
+    height: 150px;
+}
+
+.redCard {
+    background: $primary;
+    color: #ffffff;
+    padding: 100px 60px;
+}
+
+.map {
+    background: $text1;
+    float: right;
+    width: 600px;
+    height: 450px;
+    color: #ffffff;
+    padding: 60px;
+    margin-top: -50%;
+}
+
+.footer {
+    margin-top: 100px;
+    background: $footer;
+    color: #ffffff;
+    padding: 40px;
+}
