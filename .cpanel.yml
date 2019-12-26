@@ -2,4 +2,5 @@
 deployment:
   tasks:
     - export DEPLOYPATH=/home/artreene/public_html/
-    - /bin/ln -s /home/artreene/repositories/ArTree/public $DEPLOYPATH
+    - cp -R /home/artreene/repositories/ArTree/ $DEPLOYPATH
+    - cp -R $DEPLOYPATH/public $DEPLOYPATH
