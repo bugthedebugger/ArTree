@@ -2,5 +2,5 @@
 deployment:
   tasks:
     - export DEPLOYPATH=/home/artreene/public_html/
-    - rm public_html
+    - rm /home/artreene/public_html
     - ln -s 	/home/artreene/repositories/ArTree/public 	/home/artreene/public_html/
