@@ -2,6 +2,7 @@
 deployment:
   tasks:
     - export DEPLOYPATH=/home/artreene/public_html/
+    - export REPO=/home/artreene/repositories/ArTree
+    - php $REPO/composer.phar install
     - cp -R /home/artreene/repositories/ArTree/* $DEPLOYPATH
     - cp -R /home/artreene/public_html/public/* $DEPLOYPATH
-    - php $DEPLOYPATH/composer.phar install
