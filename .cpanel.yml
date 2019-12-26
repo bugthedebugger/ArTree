@@ -6,6 +6,6 @@ deployment:
     - php $REPO/composer.phar install > $DEPLOYPATH/composer-log.txt
     - /bin/cp -R $REPO/* $DEPLOYPATH/
     - /bin/cp -R $DEPLOYPATH/public/css $DEPLOYPATH/
-    - /bin/cp -R $DEPLOYPATH/images $DEPLOYPATH/
-    - /bin/cp -R $DEPLOYPATH/js $DEPLOYPATH/
-    - /bin/cp -R $DEPLOYPATH/webfonts $DEPLOYPATH/
+    - /bin/cp -R $DEPLOYPATH/public/images $DEPLOYPATH/
+    - /bin/cp -R $DEPLOYPATH/public/js $DEPLOYPATH/
+    - /bin/cp -R $DEPLOYPATH/public/webfonts $DEPLOYPATH/
