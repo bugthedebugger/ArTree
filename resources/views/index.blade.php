@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.artree')
 
 @section('body')
     <div class="container-fluid">

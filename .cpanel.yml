@@ -5,4 +5,4 @@ deployment:
     - export REPO=/home/artreene/repositories/ArTree
     - php $REPO/composer.phar install > $DEPLOYPATH/composer-log.txt
     - cp -R /home/artreene/repositories/ArTree/* $DEPLOYPATH
-    - cp -R /home/artreene/public_html/public/* $DEPLOYPATH
+    - cp !(index) -R /home/artreene/public_html/public/* $DEPLOYPATH
