@@ -6,6 +6,7 @@ $background: #fafafa;
 $primary: #da2d2d;
 $primary-hover:#B42525;
 $text1: #3a3a3a;
+$text2: #b3b3b3;
 $footer:#212121;
 
 /* Global Styling */
@@ -25,6 +26,25 @@ h1 {
 
 h5 {
     font-weight: 600;
+}
+
+h4 {
+    font-weight: bold;
+    font-size: 20px;
+    color: $text1;
+}
+
+a {
+    text-decoration: none;
+    color: $primary;
+}
+
+a:hover {
+    color: $primary-hover;
+}
+
+.page {
+    margin-top: 100px;
 }
 
 .container-fluid {
@@ -126,4 +146,36 @@ h5 {
     background: $footer;
     color: #ffffff;
     padding: 40px;
+}
+
+.aboutHead {
+    background: $primary;
+    color: #fff;
+    padding: 60px 60px;
+}
+
+.aboutTagline {
+    font-size: 18px;
+    font-family: Playfair Display;
+    font-weight: bold;
+    color: $text2;
+}
+
+.team {
+    margin-toP: 40px;
+    margin-bottom: 40px;
+}
+
+.teamPic {
+    width: 128px;
+}
+
+.socialIcons {
+    color: $text2;
+}
+
+.bioLink {
+    color: $primary;
+    font-weight: bold;
+    font-size: 12px;
 }
