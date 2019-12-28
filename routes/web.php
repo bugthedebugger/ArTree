@@ -19,3 +19,7 @@ Route::get('/', 'LandingPageController@index')->name('landing-page');
 Route::get('/about', function(){
     return view('about');
 });
+
+Route::get('/bio', function(){
+    return view('bio');
+});
