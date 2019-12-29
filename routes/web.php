@@ -13,7 +13,13 @@
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::group(['prefix' => 'admin'], function () {
+    Route::get('/', 'Admin\DashboardController@index')->name('admin');
+    Route::get('/projects', 'Admin\ProjectsController@index')->name('admin-projects');
+    Route::get('/projects/create', 'Admin\ProjectsController@create')->name('admin-projects-create');
+});
+
+
 Route::get('/', 'LandingPageController@index')->name('landing-page');
 
 Route::get('/about', function(){

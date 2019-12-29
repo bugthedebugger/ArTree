@@ -19,6 +19,8 @@ class CreateProjectsTable extends Migration
             $table->date('project_date')->nullable();
             $table->string('location')->nullable();
             $table->boolean('event')->default(false);
+            $table->string('featured');
+            $table->longText('body');
             $table->timestamps();
         });
     }
