@@ -36,15 +36,25 @@ a {
 }
 
 a:hover {
-  color: #B42525;
+  color: #b42525;
 }
 
 .page {
   margin-top: 120px;
+  background: #fafafa;
 }
 
 .container-fluid {
   padding: 0 !important;
+}
+
+/* ---------------------------------------------------
+                  MEDIAQUERIES
+----------------------------------------------------- */
+@media (max-width: 768px) {
+  .blogBookmark {
+    display: none;
+  }
 }
 
 /* Navigation */
@@ -52,7 +62,7 @@ a:hover {
   background: #ffffff !important;
   color: #3a3a3a;
   font-weight: bold;
-  z-index: 1;
+  z-index: 100;
   -webkit-box-shadow: 0px 0px 5px #727272;
           box-shadow: 0px 0px 5px #727272;
   font-size: 16px;
@@ -100,24 +110,28 @@ a:hover {
   margin-top: 100px;
 }
 
+.card-title {
+  font-size: 12px;
+}
+
+/* Buttons */
 .btn-artee {
   background: #da2d2d;
   color: #ffffff;
   padding: 5px 25px;
   border-radius: 0px;
   font-size: 12px;
-  font-weight: 600;
   -webkit-transition: 0.5s;
   transition: 0.5s;
 }
 
 .btn-artee:hover {
   color: #ffffff;
-  background: #B42525;
+  background: #b42525;
 }
 
 .grey {
-  background: #E3E3E3;
+  background: #e3e3e3;
   width: 100%;
   height: 150px;
 }
@@ -145,6 +159,7 @@ a:hover {
   padding: 40px;
 }
 
+/* About Page */
 .aboutHead {
   background: #da2d2d;
   color: #fff;
@@ -177,6 +192,7 @@ a:hover {
   font-size: 12px;
 }
 
+/* Biography Page */
 .bioText {
   text-align: justify;
   color: #3a3a3a;
@@ -185,5 +201,33 @@ a:hover {
 .teamOthers {
   background: #fff;
   padding: 40px;
+}
+
+/* Blog Page*/
+.blogBookmark {
+  color: #da2d2d;
+  font-size: 24px;
+  position: fixed;
+}
+
+.share {
+  padding: 0px 10px;
+}
+
+.arteeCaro {
+  width: 100%;
+  height: 400px;
+}
+
+.blogTitle {
+  width: 600px;
+}
+
+.arteeTable {
+  font-size: 14px;
+}
+
+.someSpace {
+  padding: 0px 10px;
 }
 /*# sourceMappingURL=main.css.map */

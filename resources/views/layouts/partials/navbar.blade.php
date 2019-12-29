@@ -7,7 +7,7 @@
             aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarText">
+        <div class="collapse navbar-collapse" id="navbarText" style="margin-left:400px;">
             <ul class="navbar-nav mr-auto">
                 <!-- Dropdown -->
                 <li class="nav-item dropdown">
@@ -31,17 +31,17 @@
 
             </ul>
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item">
+                <li class="">
                     <a class="nav-link" href="#">
                         <i class="fab fa-facebook"></i>
                     </a>
                 </li>
-                <li class="nav-item">
+                <li class="">
                     <a class="nav-link" href="#">
                         <i class="fab fa-instagram"></i>
                     </a>
                 </li>
-                <li class="nav-item">
+                <li class="">
                     <a class="nav-link" href="#">
                         <i class="fab fa-youtube"></i>
                     </a>

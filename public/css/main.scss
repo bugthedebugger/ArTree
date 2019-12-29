@@ -4,10 +4,10 @@
 /* Variables */
 $background: #fafafa;
 $primary: #da2d2d;
-$primary-hover:#B42525;
+$primary-hover: #b42525;
 $text1: #3a3a3a;
 $text2: #b3b3b3;
-$footer:#212121;
+$footer: #212121;
 
 /* Global Styling */
 body {
@@ -49,10 +49,20 @@ a:hover {
 
 .page {
     margin-top: 120px;
+    background: $background;
 }
 
 .container-fluid {
     padding: 0 !important;
+}
+
+/* ---------------------------------------------------
+                  MEDIAQUERIES
+----------------------------------------------------- */
+@media (max-width:768px) {
+    .blogBookmark {
+        display: none;
+    }
 }
 
 /* Navigation */
@@ -60,7 +70,7 @@ a:hover {
     background: #ffffff !important;
     color: $text1;
     font-weight: bold;
-    z-index: 1;
+    z-index: 100;
     box-shadow: 0px 0px 5px #727272;
     font-size: 16px;
     padding: 10px;
@@ -102,19 +112,23 @@ a:hover {
     font-weight: 600;
 }
 
-
 /* News and Updates */
 .news {
     margin-top: 100px;
 }
 
+.card-title {
+    font-size: 12px;
+}
+
+
+/* Buttons */
 .btn-artee {
     background: $primary;
     color: #ffffff;
     padding: 5px 25px;
     border-radius: 0px;
     font-size: 12px;
-    font-weight: 600;
     transition: 0.5s;
 }
 
@@ -124,7 +138,7 @@ a:hover {
 }
 
 .grey {
-    background: #E3E3E3;
+    background: #e3e3e3;
     width: 100%;
     height: 150px;
 }
@@ -152,6 +166,8 @@ a:hover {
     padding: 40px;
 }
 
+
+/* About Page */
 .aboutHead {
     background: $primary;
     color: #fff;
@@ -184,6 +200,8 @@ a:hover {
     font-size: 12px;
 }
 
+/* Biography Page */
+
 .bioText {
     text-align: justify;
     color: $text1;
@@ -192,4 +210,33 @@ a:hover {
 .teamOthers {
     background: #fff;
     padding: 40px;
+}
+
+/* Blog Page*/
+
+.blogBookmark {
+    color: $primary;
+    font-size: 24px;
+    position: fixed;
+}
+
+.share {
+    padding: 0px 10px;
+}
+
+.arteeCaro {
+    width: 100%;
+    height: 400px;
+}
+
+.blogTitle {
+    width: 600px;
+}
+
+.arteeTable {
+    font-size: 14px;
+}
+
+.someSpace {
+    padding: 0px 10px;
 }

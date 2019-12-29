@@ -42,6 +42,7 @@
                                 <i class="fal fa-calendar"></i>&nbsp; 11th Sep 2019, Monday
                             </p>
                             <p class="card-text">
+                                <strong>Some cool Title</strong> <br>
                                 ... and African countries. According to the International Organization of Migration
                                 (IOM) for the only thing that matters is the fact that...
                             </p>
@@ -59,6 +60,7 @@
                                 <i class="fal fa-calendar"></i>&nbsp; 11th Sep 2019, Monday
                             </p>
                             <p class="card-text">
+                                <strong>Some cool Title</strong> <br>
                                 ... and African countries. According to the International Organization of Migration
                                 (IOM) for the only thing that matters is the fact that...
                             </p>
@@ -74,6 +76,7 @@
                                 <i class="fal fa-calendar"></i>&nbsp; 11th Sep 2019, Monday
                             </p>
                             <p class="card-text">
+                                 <strong>Some cool Title</strong> <br>
                                 ... and African countries. According to the International Organization of Migration
                                 (IOM) for the only thing that matters is the fact that...
                             </p>
@@ -89,6 +92,7 @@
                                 <i class="fal fa-calendar"></i>&nbsp; 11th Sep 2019, Monday
                             </p>
                             <p class="card-text">
+                                <strong>Some cool Title</strong> <br>
                                 ... and African countries. According to the International Organization of Migration
                                 (IOM) for the only thing that matters is the fact that...
                             </p>
