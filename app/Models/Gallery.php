@@ -10,4 +10,8 @@ class Gallery extends Model
         'uuid',
         'path',
     ];
+
+    public function project() {
+        return $this->belongsTo('App\Models\Project', 'uuid', 'uuid');
+    }
 }

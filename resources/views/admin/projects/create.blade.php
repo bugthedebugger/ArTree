@@ -5,7 +5,7 @@ New Project
 @endsection
 
 @section('head')
-<script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+<script src="https://cdn.tiny.cloud/1/ki6agi5l9838uye4vcvrjeaujmdbx77zqqastubfn0xxifu8/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
 <script>
     tinymce.init({selector:'textarea',
         plugins: ["image","lists"],
@@ -26,14 +26,19 @@ New Project
                     {{ session('status') }}
                 </div>
             @endif
-            <form action="" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('admin-projects-store', $galleryID) }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="form-group row">
                     <label for="projectName" class="col-sm-2 col-form-label font-weight-bold">
                         Project name
                     </label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" name="name" id="projectName" placeholder="e.g. Awesome Project" required>
+                        <input type="text" class="form-control @error('name') is-invalid @enderror" value="{{ old('name') }}" name="name" id="projectName" placeholder="e.g. Awesome Project" required>
+                        @error('name')
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                        @enderror
                     </div>
                 </div>
                 <div class="form-group row">
@@ -41,7 +46,12 @@ New Project
                         Project Date
                     </label>
                     <div class="col-sm-10">
-                        <input type="date" class="form-control" name="name" id="date">
+                        <input type="date" class="form-control @error('date') is-invalid @enderror" name="date" id="date" value="{{ old('date') }}">
+                        @error('date')
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                        @enderror
                     </div>
                 </div>
                 <div class="form-group row">
@@ -49,7 +59,12 @@ New Project
                         Project Location
                     </label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" name="location" id="location" placeholder="e.g. Kathmandu, Nepal">
+                        <input type="text" class="form-control @error('location') is-invalid @enderror" name="location" id="location" placeholder="e.g. Kathmandu, Nepal" value="{{ old('location') }}">
+                        @error('location')
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                        @enderror
                     </div>
                 </div>
                 <div class="form-group row">
@@ -57,9 +72,35 @@ New Project
                         Project Category
                     </label>
                     <div class="col-sm-10">
-                        <select id="category" class="form-control" required>
+                        <select id="category" name="category" class="form-control @error('category') is-invalid @enderror" required>
                             <option selected>Select Category</option>
+                            @foreach($categories as $category) 
+                                <option value="{{ $category->id }}">{{ $category->name }}</option>
+                            @endforeach
                         </select>
+                        @error('category')
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                        @enderror
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="project-year" class="col-sm-2 col-form-label font-weight-bold">
+                        Project Year
+                    </label>
+                    <div class="col-sm-10">
+                        <select id="project-year" name="project-year" class="form-control @error('project-year') is-invalid @enderror" required>
+                            <option selected>Select Year</option>
+                            @foreach($years as $year) 
+                                <option value="{{ $year->id }}">{{ $year->year }}</option>
+                            @endforeach
+                        </select>
+                        @error('project-year')
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                        @enderror
                     </div>
                 </div>
                 <div class="form-group row">
@@ -82,7 +123,12 @@ New Project
                         Event Location
                     </label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control event-class" name="event-location" id="event-location" placeholder="e.g. Kathmandu, Nepal" disabled>
+                        <input type="text" class="form-control event-class @error('event-location') is-invalid @enderror" name="event-location" id="event-location" placeholder="e.g. Kathmandu, Nepal" disabled>
+                        @error('event-location')
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                        @enderror
                     </div>
                 </div>
                 <div class="form-group row">
@@ -90,7 +136,12 @@ New Project
                         Event Start Date
                     </label>
                     <div class="col-sm-10">
-                        <input type="date" class="form-control event-class" name="event-start-date" id="event-start-date" disabled>
+                        <input type="date" class="form-control event-class @error('event-start-date') is-invalide @enderror" name="event-start-date" id="event-start-date" disabled>
+                        @error('event-start-date')
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                        @enderror
                     </div>
                 </div>
                 <div class="form-group row">
@@ -98,7 +149,12 @@ New Project
                         Event End Date
                     </label>
                     <div class="col-sm-10">
-                        <input type="date" class="form-control event-class" name="event-end-date" id="event-end-date" disabled>
+                        <input type="date" class="form-control event-class @error('event-end-date') is-invalide @enderror" name="event-end-date" id="event-end-date" disabled>
+                        @error('event-end-date')
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                        @enderror
                     </div>
                 </div>
                 <div class="form-group row">
@@ -106,7 +162,12 @@ New Project
                         Event Start Time
                     </label>
                     <div class="col-sm-10">
-                        <input type="time" class="form-control event-class" name="event-start-time" id="event-start-time" placeholder="e.g. 12:00 pm" disabled>
+                        <input type="time" class="form-control event-class @error('event-start-time') is-invalide @enderror" name="event-start-time" id="event-start-time" placeholder="e.g. 12:00 pm" disabled>
+                        @error('event-start-time')
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                        @enderror
                     </div>
                 </div>
                 <div class="form-group row">
@@ -114,7 +175,12 @@ New Project
                         Event End Time
                     </label>
                     <div class="col-sm-10">
-                        <input type="time" class="form-control event-class" name="event-end-time" id="event-end-time" placeholder="e.g. 12:00 pm" disabled>
+                        <input type="time" class="form-control event-class @error('event-end-time') is-invalid @enderror" name="event-end-time" id="event-end-time" placeholder="e.g. 12:00 pm" disabled>
+                        @error('event-end-time')
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                        @enderror
                     </div>
                 </div>
                 <div class="form-group row">
@@ -122,7 +188,12 @@ New Project
                         Event Entry Fee
                     </label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control event-class" name="event-entry-fee" id="event-entry-fee" placeholder="e.g. Rs.1200/- or Free" disabled>
+                        <input type="text" class="form-control event-class @error('event-entry-fee') is-invalid @enderror" name="event-entry-fee" id="event-entry-fee" placeholder="e.g. Rs.1200/- or Free" disabled>
+                        @error('event-entry-fee')
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                        @enderror
                     </div>
                 </div>
                 <div class="form-group row">
@@ -130,15 +201,20 @@ New Project
                         Featured Image
                     </label>
                     <div class="input-group col-sm-10">
-                        <div class="custom-file">
+                        <div class="custom-file @error('featured') is-invalid @enderror">
                             <input name="featured" onchange="changed(this)" type="file" class="custom-file-input" id="inputGroupFile01"
                             aria-describedby="inputGroupFileAddon01" required aria-required="true">
                             <label id="fileLabel" class="custom-file-label" for="inputGroupFile01">Choose file</label>
                         </div>
+                        @error('featured')
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                        @enderror
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label for="featured" class="col-sm-2 col-form-label font-weight-bold">
+                    <label for="gallery" class="col-sm-2 col-form-label font-weight-bold">
                         Gallery Images*
                     </label>
                     <div class="input-group col-sm-10">
@@ -160,10 +236,9 @@ New Project
                     </label><br>
                 </div>
                 <div id="gallery" class="form-group row">
-                    
                 </div>
                 <div class="form-group">
-                    <textarea name="blog" id="" cols="30" rows="20"></textarea>
+                    <textarea name="blog" id="" cols="30" rows="20">{{ old('blog') }}</textarea>
                 </div>
                 <div class="form-group">
                     <button type="submit" class="btn btn-success">
@@ -200,8 +275,29 @@ New Project
 
 
     function uploadGalleryImages(e) {
-        console.log('called the function');
-
+        var galleryEl = document.getElementById("gallery");
+        galleryEl.innerHTML = '\
+        <div class="container">\
+            <b>Uploading please wait ... </b>\
+            <div class="spinner-grow text-primary" role="status">\
+                <span class="sr-only">Loading...</span>\
+            </div>\
+            <div class="spinner-grow text-secondary" role="status">\
+                <span class="sr-only">Loading...</span>\
+            </div>\
+            <div class="spinner-grow text-success" role="status">\
+                <span class="sr-only">Loading...</span>\
+            </div>\
+            <div class="spinner-grow text-danger" role="status">\
+                <span class="sr-only">Loading...</span>\
+            </div>\
+            <div class="spinner-grow text-warning" role="status">\
+                <span class="sr-only">Loading...</span>\
+            </div>\
+            <div class="spinner-grow text-info" role="status">\
+                <span class="sr-only">Loading...</span>\
+            </div>\
+        </div>';
         var files = e.files;
         var formData = new FormData();
         
@@ -217,7 +313,7 @@ New Project
             body: formData,
         }).then((response) => {
             response.text().then((data) => {
-                document.getElementById("gallery").innerHTML = data;
+                galleryEl.innerHTML = data;
             });
         });
     }

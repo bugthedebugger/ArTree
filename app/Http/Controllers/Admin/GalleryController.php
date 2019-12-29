@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Storage;
 use App\Models\Gallery;
+use Session;
+use Validator;
 
 class GalleryController extends Controller
 {
@@ -17,6 +19,16 @@ class GalleryController extends Controller
         
         $storage_path = 'public/uploads';
         $photos = $request->photos;
+
+        $rules = [
+            'photos' => 'required|array',
+            'photos.*' => 'mimes:jpeg,jpg,png,gif,svg|max:10000',
+        ];
+        $validator = Validator::make(['photos' => $photos], $rules);
+
+        if ($validator->fails()) {
+            return $validator->errors()->getMessages();
+        }
 
         \DB::beginTransaction();
         try{
@@ -32,7 +44,7 @@ class GalleryController extends Controller
         } catch (\Exception $e) {
             \DB::rollback();
             Session::flash('error', 'Error uploading images!');
-            return '<div class="text-danger">'.$e.getMessage().'</div>';
+            return '<div class="text-danger">'.$e->getMessage().'</div>';
         }
         
         $gallery = Gallery::where('uuid', $id)->get();

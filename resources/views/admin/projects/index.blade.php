@@ -29,18 +29,26 @@ All Projects
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>Project Name</td>
-                        <td>1/1/2020</td>
-                        <td>
-                            <a href="#" class="btn btn-primary">Edit</a>
-                            <a href="#" class="btn btn-danger">Archive</a>
-                            <a href="#" class="btn btn-secondary">Hide</a>
-                            <a href="#" class="btn btn-success">Show</a>
-                        </td>
-                    </tr>
+                    @foreach($projects as $project)
+                        <tr>
+                            <td>{{ $project->name }}</td>
+                            <td>{{ \Carbon\Carbon::parse($project->project_date)->toFormattedDateString() }}</td>
+                            <td>
+                                <a href="#" class="btn btn-primary">Edit</a>
+                                <a href="#" class="btn btn-danger">Archive</a>
+                                @if(!$project->hidden)
+                                    <a href="#" class="btn btn-secondary">Hide</a>
+                                @else
+                                    <a href="#" class="btn btn-success">Show</a>
+                                @endif    
+                            </td>
+                        </tr>
+                    @endforeach
                 </tbody>
             </table>
+        </div>
+        <div class="card-footer">
+            {{ $projects->links() }}
         </div>
     </div>
 </div>
