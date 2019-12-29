@@ -23,3 +23,12 @@ Route::get('/about', function(){
 Route::get('/bio', function(){
     return view('bio');
 });
+
+Route::get('/blog', function(){
+    return view('blog');
+});
+
+Route::get('/projects', function(){
+    return view('projects');
+});
+
