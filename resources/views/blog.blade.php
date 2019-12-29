@@ -25,7 +25,7 @@
                     <div class="aboutTagline">
                         <i class="fas fa-quote-left"></i>
                         <p>
-                            ArtTree projects explore a multitude of identities, cultures, and dynamics with strategic grassroots interventions and a goal of shaping emerging communities. 
+                            "Although throughout the history, Nepal 's one of the best exports have been garments and textiles , general Nepali people started to loose their connection with it." 
                         </p>
                     </div>
                 </div>
