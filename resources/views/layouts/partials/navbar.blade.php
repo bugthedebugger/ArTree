@@ -9,8 +9,18 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarText">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">PROJECTS<span class="sr-only">(current)</span></a>
+                <!-- Dropdown -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                    PROJECTS
+                    </a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="#">2020</a>
+                        <a class="dropdown-item" href="#">2019</a>
+                        <a class="dropdown-item" href="#">2018</a>
+                        <a class="dropdown-item" href="#">2017</a>
+                        <a class="dropdown-item" href="#">2016</a>
+                    </div>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">ABOUT</a>
