@@ -12,4 +12,8 @@ class Projectyear extends Model
     protected $fillable = [
         'year'
     ];
+
+    public function projects() {
+        return $this->hasMany('App\Models\Project');
+    }
 }

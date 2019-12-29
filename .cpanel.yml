@@ -9,3 +9,6 @@ deployment:
     - /bin/cp -R /home/artreene/public_html/public/images $DEPLOYPATH
     - /bin/cp -R /home/artreene/public_html/public/js $DEPLOYPATH
     - /bin/cp -R /home/artreene/public_html/public/webfonts $DEPLOYPATH
+    - php artisan migrate
+    - php artisan db:seed
+    - php artisan storage:link
