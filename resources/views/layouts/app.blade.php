@@ -5,15 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'Laravel') }} | Admin | @yield('title')</title>
     <!-- Scripts -->
     <script src="https://use.fontawesome.com/aee0a3be36.js"></script>
     <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="{{ asset('js/toastr.min.js') }}"></script>
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('css/toastr.min.css') }}">
     @yield('head')
 </head>
 <body>
@@ -79,5 +82,17 @@
         </main>
     </div>
     @yield('scripts')
+    <script>
+        @if( Session::has('success') )
+            toastr.success("{{ Session::get('success') }}");
+        @elseif( Session::has('info') )
+            toastr.info("{{ Session::get('info') }}");
+        @elseif( Session::has('error') )
+            toastr.error("{{ Session::get('error') }}");
+        @endif
+        @if ($errors->any())
+            toastr.error("Something went wrong!");
+        @endif
+    </script>
 </body>
 </html>

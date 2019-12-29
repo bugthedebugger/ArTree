@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('title')
+All Projects
+@endsection
+
 @section('content')
 <div class="container">
     <div class="card">
@@ -29,8 +33,10 @@
                         <td>Project Name</td>
                         <td>1/1/2020</td>
                         <td>
-                            <i class="fas fa-edit btn-primary"></i>
-                            <i class="fas fa-trash btn-danger"></i>
+                            <a href="#" class="btn btn-primary">Edit</a>
+                            <a href="#" class="btn btn-danger">Archive</a>
+                            <a href="#" class="btn btn-secondary">Hide</a>
+                            <a href="#" class="btn btn-success">Show</a>
                         </td>
                     </tr>
                 </tbody>
