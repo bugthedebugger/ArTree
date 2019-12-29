@@ -15,3 +15,20 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/', 'LandingPageController@index')->name('landing-page');
+
+Route::get('/about', function(){
+    return view('about');
+});
+
+Route::get('/bio', function(){
+    return view('bio');
+});
+
+Route::get('/blog', function(){
+    return view('blog');
+});
+
+Route::get('/projects', function(){
+    return view('projects');
+});
+
