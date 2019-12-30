@@ -23,7 +23,7 @@
             </div>
         </div>
         <div class="map">
-            hello
+            Place for the Map
         </div>
     </div>
 </div>

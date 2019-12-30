@@ -7,7 +7,7 @@
         <div class="row">
             <div class="col-md-4">
                 <div>
-                    <h1 class="blogTitle">Dhaka Art Summit - 2018</h1><br>
+                    <h1 class="blogTitle">Dhaka Art Summit - 2018 </h1>
                     <table class="table table-borderless table-sm arteeTable">
                         <tr>
                             <td><i class="fal fa-calendar"></i>&nbsp;</td>

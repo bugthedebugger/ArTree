@@ -162,5 +162,6 @@
                 </div>
             </div>
         </div>
+        @include('layouts.partials.contact-us')
     </div>
 @endsection

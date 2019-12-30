@@ -11,232 +11,242 @@ $footer: #212121;
 
 /* Global Styling */
 body {
-    padding: 0px;
-    margin: 0px auto;
-    background: $background;
-    font-family: Raleway;
-    line-height: 2;
+	padding: 0px;
+	margin: 0px auto;
+	background: $background;
+	font-family: Raleway;
+	line-height: 2;
 }
 
 h1 {
-    font-size: 40px;
-    font-family: Playfair Display;
-    font-weight: bold;
+	font-size: 40px;
+	font-family: Playfair Display;
+	font-weight: bold;
 }
 
 h5 {
-    font-weight: 600;
+	font-weight: 600;
 }
 
 h4 {
-    font-weight: bold;
-    font-size: 20px;
-    color: $text1;
+	font-weight: bold;
+	font-size: 20px;
+	color: $text1;
 }
 
 h6 {
-    font-weight: bold;
+	font-weight: bold;
 }
 
 a {
-    text-decoration: none;
-    color: $primary;
+	text-decoration: none;
+	color: $primary;
 }
 
 a:hover {
-    color: $primary-hover;
+	color: $primary-hover;
+}
+
+[class*="col-"] {
+	margin-bottom: 15px;
 }
 
 .page {
-    margin-top: 120px;
-    background: $background;
+	margin-top: 120px;
+	background: $background;
 }
 
 .container-fluid {
-    padding: 0 !important;
+	padding: 0 !important;
 }
 
 /* ---------------------------------------------------
                   MEDIAQUERIES
 ----------------------------------------------------- */
-@media (max-width:768px) {
-    .blogBookmark {
-        display: none;
-    }
+@media (max-width: 768px) {
+	.blogBookmark {
+		display: none;
+	}
+	.map {
+		display: none;
+	}
 }
 
 /* Navigation */
 .arteeNav {
-    background: #ffffff !important;
-    color: $text1;
-    font-weight: bold;
-    z-index: 100;
-    box-shadow: 0px 0px 5px #727272;
-    font-size: 14px;
-    padding: 10px;
+	background: #ffffff !important;
+	color: $text1;
+	font-weight: bold;
+	z-index: 100;
+	box-shadow: 0px 0px 5px #727272;
+	font-size: 14px;
+	padding: 10px;
 }
 
 .nav-item {
-    padding: 0px 25px;
+	padding: 0px 25px;
 }
 
 .logo {
-    width: 100px;
+	width: 100px;
 }
 
 /* Hero Section */
 .hero {
-    background-image: url('../images/hero.png');
-    background-color: $primary;
-    background-size: cover;
-    background-repeat: no-repeat;
-    color: #ffffff;
-    height: 100vh;
-    position: relative;
-    z-index: 0;
+	background-image: url('../images/hero.png');
+	background-color: $primary;
+	background-size: cover;
+	background-repeat: no-repeat;
+	color: #ffffff;
+	height: 100vh;
+	position: relative;
+	z-index: 0;
 }
 
 .desc {
-    position: absolute;
-    bottom: 0;
-    left: 20;
-    margin-bottom: 60px;
+	position: absolute;
+	bottom: 0;
+	left: 20;
+	margin-bottom: 60px;
 }
 
 .titleHead {
-    font-size: 4em;
+	font-size: 4em;
 }
 
 .tagHead {
-    font-size: 18px;
-    font-weight: 600;
+	font-size: 18px;
+	font-weight: 600;
 }
 
 /* News and Updates */
 .news {
-    margin-top: 100px;
+	margin-top: 100px;
 }
 
 .card-title {
-    font-size: 12px;
+	font-size: 12px;
 }
-
 
 /* Buttons */
 .btn-artee {
-    background: $primary;
-    color: #ffffff;
-    padding: 5px 25px;
-    border-radius: 0px;
-    font-size: 12px;
-    transition: 0.5s;
+	background: $primary;
+	color: #ffffff;
+	padding: 5px 25px;
+	border-radius: 0px;
+	font-size: 12px;
+	transition: 0.5s;
 }
 
 .btn-artee:hover {
-    color: #ffffff;
-    background: $primary-hover;
+	color: #ffffff;
+	background: $primary-hover;
 }
 
 .grey {
-    background: #e3e3e3;
-    width: 100%;
-    height: 150px;
+	background: #e3e3e3;
+	width: 100%;
+	height: 150px;
 }
 
 .redCard {
-    background: $primary;
-    color: #ffffff;
-    padding: 100px 60px;
+	background: $primary;
+	color: #ffffff;
+	padding: 100px 60px;
 }
 
 .map {
-    background: $text1;
-    float: right;
-    width: 600px;
-    height: 450px;
-    color: #ffffff;
-    padding: 60px;
-    margin-top: -50%;
+	background: $text1;
+	float: right;
+	width: 500px;
+	height: 450px;
+	color: #ffffff;
+	padding: 60px;
+	margin-top: -50%;
+	z-index: 2;
+	position: relative;
 }
 
 .footer {
-    margin-top: 100px;
-    background: $footer;
-    color: #ffffff;
-    padding: 40px;
+	margin-top: 100px;
+	background: $footer;
+	color: #ffffff;
+	padding: 40px;
 }
-
 
 /* About Page */
 .aboutHead {
-    background: $primary;
-    color: #fff;
-    padding: 60px 60px;
+	background: $primary;
+	color: #fff;
+	padding: 60px 60px;
 }
 
 .aboutTagline {
-    font-size: 18px;
-    font-family: Playfair Display;
-    font-weight: bold;
-    color: $text2;
+	font-size: 18px;
+	font-family: Playfair Display;
+	font-weight: bold;
+	color: $text2;
 }
 
 .team {
-    margin-toP: 40px;
-    margin-bottom: 40px;
+	margin-toP: 40px;
+	margin-bottom: 40px;
 }
 
 .teamPic {
-    width: 128px;
+	width: 128px;
 }
 
 .socialIcons {
-    color: $text2;
+	color: $text2;
 }
 
 .bioLink {
-    color: $primary;
-    font-weight: bold;
-    font-size: 12px;
+	color: $primary;
+	font-weight: bold;
+	font-size: 12px;
 }
 
 /* Biography Page */
 
 .bioText {
-    text-align: justify;
-    color: $text1;
+	text-align: justify;
+	color: $text1;
 }
 
 .teamOthers {
-    background: #fff;
-    padding: 40px;
+	background: #fff;
+	padding: 40px;
 }
 
 /* Blog Page*/
 
 .blogBookmark {
-    color: $primary;
-    font-size: 24px;
-    position: fixed;
+	color: $primary;
+	font-size: 24px;
+	position: fixed;
 }
 
 .share {
-    padding: 0px 10px;
+	padding: 0px 10px;
 }
 
 .arteeCaro {
-    width: 100%;
-    height: 400px;
+	width: 100%;
+	height: 400px;
 }
 
 .blogTitle {
-    width: 600px;
+	width: 600px;
+	position: relative;
+	z-index: 2;
+	line-height: 1.4;
 }
 
 .arteeTable {
-    font-size: 14px;
+	font-size: 14px;
 }
 
 .someSpace {
-    padding: 0px 10px;
+	padding: 0px 10px;
 }
