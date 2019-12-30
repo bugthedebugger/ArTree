@@ -17,14 +17,14 @@
             <h1>News and Updates</h1><br>
             <div class="row">
                 <div class="col-md-8">
-                    <div class="card">
+                    <div class="card" style="height:100%;">
                         <div class="row">
                             <div class="col-md-6">
-                                <img src="images/hero.png" alt="" style="width:100%;height:100%;">
+                                <img src="images/hero.png" style="width:100%;height:100%;">
                             </div>
                             <div class="col-md-6">
                                 <div style="padding:40px;">
-                                    <strong>Opposite Dreams - the Politics of Nepal</strong> <br>
+                                    <strong>Opposite Dreams - the Politics of Nepal</strong> <br><br>
                                     <i class="fal fa-calendar"></i>&nbsp; 27th Oct 2019 <br>
                                     <i class="fal fa-clock"></i>&nbsp; 11AM - 7PM <br>
                                     <i class="fal fa-map-marker"></i>&nbsp; Samarpan Marg, Tripureshore <br>
