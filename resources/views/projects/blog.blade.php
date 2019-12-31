@@ -39,11 +39,13 @@
                         <!-- The slideshow -->
                         <div class="carousel-inner">
                             <div class="carousel-item active">
-                                <img src="{{ $project->featured }}">
+                                <img src="{{ $project->featured ?? asset('images/project.png') }}">
                             </div>
-                            <div class="carousel-item">
-                                <img src="{{ asset('images/project.png') }}">
-                            </div>
+                            @foreach($project->gallery as $gallery)
+                                <div class="carousel-item">
+                                    <img src="{{ $gallery->path }}">
+                                </div>
+                            @endforeach
                         </div>
                         
                         <!-- Left and right controls -->

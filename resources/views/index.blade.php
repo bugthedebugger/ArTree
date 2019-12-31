@@ -5,7 +5,7 @@
         <div class="hero">
             <div class="container">
                 <div class="desc">
-                    <span class="titleHead">{{ $featuredProject->name }}</span><br>
+                    <span class="titleHead">{{ $featuredProject->name ?? 'No featured projects yet.' }}</span><br>
                     {{-- <span class="tagHead">Opposite Dreams - The Politics of Nepal</span> --}}
                 </div>
             </div>

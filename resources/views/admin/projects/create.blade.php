@@ -222,7 +222,7 @@ New Project
                     <div class="input-group col-sm-10">
                         <div class="custom-file">
                             <input multiple name="gallery" onchange="uploadGalleryImages(this)" type="file" class="custom-file-input" id="inputGroupFile02"
-                            aria-describedby="inputGroupFileAddon02" required aria-required="true">
+                            aria-describedby="inputGroupFileAddon02">
                             <label id="fileLabel2" class="custom-file-label" for="inputGroupFile02">Choose file</label>
                         </div>
                     </div>
