@@ -28,7 +28,7 @@ class Project extends Model
     }
 
     public function projectYear() {
-        return $this->belongsTo('App\Models\Projectyear');
+        return $this->belongsTo('App\Models\Projectyear', 'projectyear_id', 'id');
     }
 
     public function category() {

@@ -43,11 +43,7 @@ Route::get('/bio', function(){
     return view('bio.bio');
 });
 
-Route::get('/blog', function(){
-    return view('blog.blog');
-});
+Route::get('/projects/{year}', 'ProjectsController@index')->name('projects-filtered');
+Route::get('/projects/{year}/{project}', 'ProjectsController@read')->name('projects-read');
 
-Route::get('/projects', function(){
-    return view('projects.projects');
-});
 

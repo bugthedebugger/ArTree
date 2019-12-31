@@ -7,9 +7,11 @@ New Project
 @section('head')
 <script src="https://cdn.tiny.cloud/1/ki6agi5l9838uye4vcvrjeaujmdbx77zqqastubfn0xxifu8/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
 <script>
-    tinymce.init({selector:'textarea',
+    tinymce.init({
+        selector:'textarea',
         plugins: ["image","lists"],
         toolbar: 'undo redo | bold italic underline strikethrough | fontselect fontsizeselect formatselect | alignleft aligncenter alignright alignjustify | outdent indent |  numlist bullist | forecolor backcolor removeformat | pagebreak | charmap emoticons | fullscreen  preview save print | insertfile image media template link anchor codesample | ltr rtl',
+        fullpage_default_font_family: "'Times New Roman', Georgia, Serif;",
     });
 </script>
 @endsection

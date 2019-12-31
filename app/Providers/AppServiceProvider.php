@@ -3,6 +3,8 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use App\Models\Projectyear;
+use Illuminate\Support\Facades\View;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -23,6 +25,13 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        $years = null;
+        try {
+            $years = Projectyear::orderBy('year', 'asc')->get();
+        } catch (\Exception $e) {
+            \Log::error($e);
+            $years = null;
+        }
+        View::share('projectYears', $years);
     }
 }
