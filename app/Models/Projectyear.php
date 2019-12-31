@@ -10,7 +10,8 @@ class Projectyear extends Model
     use SoftDeletes;
 
     protected $fillable = [
-        'year'
+        'year',
+        'hidden',
     ];
 
     public function projects() {

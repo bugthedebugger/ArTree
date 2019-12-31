@@ -10,7 +10,8 @@ class ProjectsController extends Controller
 {
     public function index($year) {
         $year = Projectyear::where('year', $year)->first();
-
+        if ($year == null)
+            abort(404);
         return view('projects.index')
                     ->with('year', $year);
     }

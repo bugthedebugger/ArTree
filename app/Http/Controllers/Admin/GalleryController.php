@@ -12,7 +12,8 @@ use Validator;
 class GalleryController extends Controller
 {
     public function getImages($id) {
-        return view('admin.projects.gallery');
+        $gallery = Gallery::where('uuid', $id)->get();
+        return view('admin.projects.gallery', ['gallery' => $gallery]);
     }
 
     public function uploadFile(Request $request, $id) {

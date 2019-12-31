@@ -19,8 +19,8 @@ class Project extends Model
         'uuid',
     ];
 
-    public function event() {
-        return $this->hasOne('App\Models\Event');
+    public function events() {
+        return $this->hasOne('App\Models\Event', 'project_id');
     }
 
     public function gallery() {

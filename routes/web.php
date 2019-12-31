@@ -19,15 +19,25 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     Route::get('/projects', 'Admin\ProjectsController@index')->name('admin-projects');
     Route::get('/projects/create', 'Admin\ProjectsController@create')->name('admin-projects-create');
     Route::post('/projects/store/{uuid}', 'Admin\ProjectsController@store')->name('admin-projects-store');
-    
+    Route::get('/projects/edit/{project}', 'Admin\ProjectsController@edit')->name('admin-projects-edit');
+    Route::post('/projects/update/{project}', 'Admin\ProjectsController@update')->name('admin-projects-update');
+    Route::get('/projects/hide/{project}', 'Admin\ProjectsController@hide')->name('admin-projects-hide');
+    Route::get('/projects/unhide/{project}', 'Admin\ProjectsController@unhide')->name('admin-projects-unhide');
+
     Route::get('/categories', 'Admin\CategoriesController@index')->name('admin-categories');
     Route::get('/categories/create', 'Admin\CategoriesController@create')->name('admin-categories-create');
     Route::post('/categories/store', 'Admin\CategoriesController@store')->name('admin-categories-store');
+    Route::get('/categories/edit/{category}', 'Admin\CategoriesController@edit')->name('admin-categories-edit');
+    Route::post('/categories/update/{category}', 'Admin\CategoriesController@update')->name('admin-categories-update');
     
     Route::get('/project-years', 'Admin\ProjectYearsController@index')->name('admin-project-years');
     Route::get('/project-years/create', 'Admin\ProjectYearsController@create')->name('admin-project-years-create');
     Route::post('/project-years/store', 'Admin\ProjectYearsController@store')->name('admin-project-years-store');
-    
+    Route::get('/project-years/edit/{year}', 'Admin\ProjectYearsController@edit')->name('admin-project-years-edit');
+    Route::post('/project-years/update/{year}', 'Admin\ProjectYearsController@update')->name('admin-project-years-update');
+    Route::get('/project-years/hide/{year}', 'Admin\ProjectYearsController@hide')->name('admin-project-years-hide');
+    Route::get('/project-years/publish/{year}', 'Admin\ProjectYearsController@publish')->name('admin-project-years-publish');
+
     Route::get('/gallery/{id}', 'Admin\GalleryController@getImages')->name('admin-project-gallery');
     Route::post('/gallery/{id}/upload', 'Admin\GalleryController@uploadFile')->name('admin-project-gallery-upload');
 });

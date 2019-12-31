@@ -34,12 +34,11 @@ All Projects
                             <td>{{ $project->name }}</td>
                             <td>{{ \Carbon\Carbon::parse($project->project_date)->toFormattedDateString() }}</td>
                             <td>
-                                <a href="#" class="btn btn-primary">Edit</a>
-                                <a href="#" class="btn btn-danger">Archive</a>
+                                <a href="{{ route('admin-projects-edit', $project) }}" class="btn btn-primary">Edit</a>
                                 @if(!$project->hidden)
-                                    <a href="#" class="btn btn-secondary">Hide</a>
+                                    <a href="{{ route('admin-projects-hide', $project) }}" class="btn btn-secondary">Hide</a>
                                 @else
-                                    <a href="#" class="btn btn-success">Show</a>
+                                    <a href="{{ route('admin-projects-unhide', $project) }}" class="btn btn-success">Publish</a>
                                 @endif    
                             </td>
                         </tr>

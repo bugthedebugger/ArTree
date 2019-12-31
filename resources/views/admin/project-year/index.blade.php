@@ -32,8 +32,12 @@ All Project Years
                         <tr>
                             <td>{{ $projectYear->year }}</td>
                             <td>
-                                <a href="#" class="btn btn-primary">Edit</a>
-                                <a href="#" class="btn btn-danger">Archive</a>
+                                <a href="{{ route('admin-project-years-edit', $projectYear) }}" class="btn btn-primary">Edit</a>
+                                @if($projectYear->hidden)
+                                    <a href="{{ route('admin-project-years-publish', $projectYear) }}" class="btn btn-success">Publish</a>
+                                @else
+                                    <a href="{{ route('admin-project-years-hide', $projectYear) }}" class="btn btn-secondary">Hide</a>
+                                @endif
                             </td>
                         </tr>
                     @endforeach

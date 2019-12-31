@@ -83,7 +83,7 @@ class ProjectsController extends Controller
                 'uuid' => $uuid,
             ]);
             if ($event) {
-                $project->event()->create([
+                $project->events()->create([
                     'location' => $event_location,
                     'start_date' => $event_start_date,
                     'end_date' => $event_end_date,
@@ -92,6 +92,135 @@ class ProjectsController extends Controller
                     'entry_fee' => $event_entry_fee,
                 ]);
             }
+            \DB::commit();
+            Session::flash('success', 'Project Saved!');
+        } catch (\Exception $e) {
+            \DB::rollback();
+            \Log::error($e);
+            Session::flash('error', $e->getMessage());
+        }
+        return redirect()->back();
+    }
+
+    public function edit(Project $project) {
+        $galleryID = $project->uuid;
+        $categories = Category::orderBy('name')->get();
+        $years = Projectyear::orderBy('year')->get();
+
+        return view('admin.projects.edit')
+                ->with('project', $project)
+                ->with('galleryID', $galleryID)
+                ->with('categories', $categories)
+                ->with('years', $years);
+    } 
+
+    public function update(Request $request, Project $project) {
+        $this->validate($request, [
+            'name' => 'required',
+            'date' => 'date|nullable',
+            'location' => 'string|nullable',
+            'category' => 'required',
+            'project-year' => 'required',
+            'event' => 'required',
+            'event-location' => 'nullable',
+            'event-start-date' => 'nullable',
+            'event-end-date' => 'nullable',
+            'event-start-time' => 'nullable',
+            'event-end-time' => 'nullable',
+            'event-entry-fee' => 'nullable',
+            'featured' => 'nullable|mimes:jpeg,jpg,png,gif,svg|max:10000',
+            'blog' => 'required',
+        ]);
+
+        $name = $request->name;
+        $project_date = $request->date;
+        $location = $request->location;
+        $category = $request->category;
+        $project_year = $request['project-year'];
+        $event = $request->event == 'yes'? true: false;
+        $event_location = $request['event-location'];
+        $event_start_date = $request['event-start-date'];
+        $event_end_date = $request['event-end-date'];
+        $event_start_time = $request['event-start-time'];
+        $event_end_time = $request['event-end-time'];
+        $event_entry_fee = $request['event-entry-fee'];
+        $featured = $request->featured;
+        $blog = $request->blog;
+
+        $upload_path = 'public/uploads';
+
+        \DB::beginTransaction();
+        try {
+            $file_path = $project->featured;
+            if($featured != null) {
+                $file = $featured->store($upload_path);
+                $file_path = Storage::url($file);
+            }
+            $project->update([
+                'name' => $name,
+                'project_date' => $project_date,
+                'location' => $location,
+                'event' => $event,
+                'featured' => $file_path,
+                'body' => $blog,
+                'hidden' => false,
+                'category_id' => $category,
+                'projectyear_id' => $project_year,
+            ]);
+            if ($event) {
+                $event = $project->events;
+                if ($event == null) {
+                    Event::create([
+                        'project_id' => $project->id,
+                        'location' => $event_location,
+                        'start_date' => $event_start_date,
+                        'end_date' => $event_end_date,
+                        'start_time' => $event_start_time,
+                        'end_time' => $event_end_time,
+                        'entry_fee' => $event_entry_fee,
+                    ]);
+                } else {
+                    $project->events()->update([
+                        'location' => $event_location,
+                        'start_date' => $event_start_date,
+                        'end_date' => $event_end_date,
+                        'start_time' => $event_start_time,
+                        'end_time' => $event_end_time,
+                        'entry_fee' => $event_entry_fee,
+                    ]);
+                }
+            }
+            $project->save();
+            \DB::commit();
+            Session::flash('success', 'Project Saved!');
+        } catch (\Exception $e) {
+            \DB::rollback();
+            \Log::error($e);
+            Session::flash('error', $e->getMessage());
+        }
+        return redirect()->back();
+    }
+
+    public function hide(Project $project) {
+        \DB::beginTransaction();
+        try {
+            $project->hidden = true;
+            $project->save();
+            \DB::commit();
+            Session::flash('success', 'Project Saved!');
+        } catch (\Exception $e) {
+            \DB::rollback();
+            \Log::error($e);
+            Session::flash('error', $e->getMessage());
+        }
+        return redirect()->back();
+    }
+
+    public function unhide(Project $project) {
+        \DB::beginTransaction();
+        try {
+            $project->hidden = false;
+            $project->save();
             \DB::commit();
             Session::flash('success', 'Project Saved!');
         } catch (\Exception $e) {

@@ -32,8 +32,7 @@ All Categories
                         <tr>
                             <td>{{ $category->name }}</td>
                             <td>
-                                <a href="#" class="btn btn-primary">Edit</a>
-                                <a href="#" class="btn btn-danger">Archive</a>
+                                <a href="{{ route('admin-categories-edit', $category) }}" class="btn btn-primary">Edit</a>
                             </td>
                         </tr>
                     @endforeach
