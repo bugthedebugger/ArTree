@@ -36,18 +36,18 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
 Route::get('/', 'LandingPageController@index')->name('landing-page');
 
 Route::get('/about', function(){
-    return view('about');
+    return view('about.about');
 });
 
 Route::get('/bio', function(){
-    return view('bio');
+    return view('bio.bio');
 });
 
 Route::get('/blog', function(){
-    return view('blog');
+    return view('blog.blog');
 });
 
 Route::get('/projects', function(){
-    return view('projects');
+    return view('projects.projects');
 });
 
