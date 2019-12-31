@@ -22,7 +22,7 @@
                         <div class="card" style="height:100%;">
                             <div class="row h-100">
                                 <div class="col-md-6 my-auto">
-                                    <img src="{{ $latestEvent->featured ?? asset('images/feat.jpeg') }}" alt="" style="width:100%">  
+                                    <img src="{{ $latestEvent->featured ?? asset('images/feat.jpeg') }}" class="eventImg">  
                                 </div>
                                 <div class="col-md-6 my-auto">
                                     <div style="padding:40px;">
@@ -40,7 +40,7 @@
                 @foreach($projects as $project)
                     <div class="col-md-4">
                         <div class="card">
-                            <img class="card-img-top" src="{{ $project->featured ?? asset('images/eye.png') }}" alt="Card image">
+                            <img class="card-img-top cardImg" src="{{ $project->featured ?? asset('images/eye.png') }}" alt="Card image">
                             <div class="card-body">
                                 <p class="card-title">
                                     <i class="fal fa-calendar"></i>&nbsp; 
