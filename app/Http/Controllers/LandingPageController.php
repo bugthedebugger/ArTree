@@ -9,6 +9,7 @@ class LandingPageController extends Controller
 {
     public function index() {
         $featuredProject = Project::orderBy('project_date', 'desc')->first();
+        $projects = Project::orderBy('project_date', 'desc')->all();
         return view('index')
                 ->with('featuredProject', $featuredProject);
     }

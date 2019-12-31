@@ -22,7 +22,7 @@
         </div>
         <br>
         <p class="text-justify">
-            {!! nl2br($settings->about) ?? 'About us is empty ...' !!}
+            {!! nl2br($settings->about?? ' ') ?? 'About us is empty ...' !!}
         </p>
         <br><br>
         <center>
