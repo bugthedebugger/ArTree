@@ -5,8 +5,8 @@
         <div class="hero">
             <div class="container">
                 <div class="desc">
-                    <span class="titleHead">बिपरित सपनाहरु</span><br>
-                    <span class="tagHead">Opposite Dreams - The Politics of Nepal</span>
+                    <span class="titleHead">{{ $featuredProject->name }}</span><br>
+                    {{-- <span class="tagHead">Opposite Dreams - The Politics of Nepal</span> --}}
                 </div>
             </div>
         </div>
