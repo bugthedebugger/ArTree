@@ -7,7 +7,8 @@ Add Team Member
 @section('content')
 <div class="container">
     <div class="card">
-        <form action="" method="POST">
+        <form action="{{ route('admin-team-store') }}" method="POST" enctype="multipart/form-data">
+            @csrf
             <div class="card-header">
                 Add Team Member
             </div>
@@ -119,6 +120,19 @@ Add Team Member
                     <div class="col-sm-10">
                         <input type="text" class="form-control @error('twitter') is-invalid @enderror" name="twitter" id="twitter" placeholder="e.g. URL">
                         @error('twitter')
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                        @enderror
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="about" class="col-sm-2 col-form-label font-weight-bold">
+                        Bio
+                    </label>
+                    <div class="col-sm-10">
+                        <textarea rows="15" cols="100" class="form-control @error('bio') is-invalid @enderror" name="bio" id="bio" placeholder="e.g. It's me Mario." required></textarea>
+                        @error('bio')
                             <div class="invalid-feedback">
                                 {{ $message }}
                             </div>

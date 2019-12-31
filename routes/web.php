@@ -46,6 +46,8 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
 
     Route::get('/team', 'Admin\TeamController@index')->name('admin-team');
     Route::get('/team/create', 'Admin\TeamController@create')->name('admin-team-create');
+    Route::post('/team/store', 'Admin\TeamController@store')->name('admin-team-store');
+    Route::get('/team/edit/{member}', 'Admin\TeamController@edit')->name('admin-team-edit');
 });
 
 

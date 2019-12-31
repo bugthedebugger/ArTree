@@ -21,29 +21,34 @@
                 </div>
             @endif
             <table class="table">
-                    <thead>
+                <thead>
+                    <tr>
+                        <th scope="col">Image</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach($team as $member)
                         <tr>
-                            <th scope="col">Image</th>
-                            <th scope="col">Name</th>
-                            <th scope="col">Actions</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                            <tr>
-                                <td>
-                                    <img src="{{ asset('images/eye.png') }}" style="object-fit:cover;" width="50" height="50">
-                                </td>
-                                <td>
-                                    Prayush Bijukchhe
-                                </td>
-                                <td>
-                                    <a href="" class="btn btn-primary">Edit</a>
-                                    <a href="" class="btn btn-secondary">Hide</a>
+                            <td>
+                                <img src="{{ $member->photo }}" style="object-fit:cover;" width="50" height="50">
+                            </td>
+                            <td>
+                                {{ $member->name }}
+                            </td>
+                            <td>
+                                <a href="{{ route('admin-team-edit', $member) }}" class="btn btn-primary">Edit</a>
+                                @if($member->hidden)
                                     <a href="" class="btn btn-success">Publish</a>
-                                </td>
-                            </tr>
-                    </tbody>
-                </table>
+                                @else
+                                    <a href="" class="btn btn-secondary">Hide</a>
+                                @endif
+                            </td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
         </div>
     </div>
 </div>

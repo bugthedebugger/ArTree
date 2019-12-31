@@ -16,5 +16,6 @@ class Team extends Model
         'youtube',
         'email',
         'number',
+        'photo',
     ];
 }
