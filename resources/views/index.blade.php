@@ -3,6 +3,7 @@
 @section('body')
     <div class="container-fluid">
         <div class="hero">
+            <img src="images/hero.png" class="featImg">
             <div class="container">
                 <div class="desc">
                     <span class="titleHead">{{ $featuredProject->name ?? 'No featured projects yet.' }}</span><br>
@@ -18,11 +19,11 @@
             <div class="row">
                 <div class="col-md-8">
                     <div class="card" style="height:100%;">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <img src="images/hero.png" style="width:100%;height:100%;">
+                        <div class="row h-100">
+                            <div class="col-md-6 my-auto">
+                                <img src="images/feat.jpeg" alt="" style="width:100%">  
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-md-6 my-auto">
                                 <div style="padding:40px;">
                                     <strong>Opposite Dreams - the Politics of Nepal</strong> <br><br>
                                     <i class="fal fa-calendar"></i>&nbsp; 27th Oct 2019 <br>

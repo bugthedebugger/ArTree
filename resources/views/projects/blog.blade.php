@@ -45,16 +45,15 @@
             </div>
             <div class="col-md-8">
                 <div>
-                    <div id="demo" class="carousel slide arteeCaro" data-ride="carousel">   
-                        
+                    <div id="demo" class="carousel slide arteeCaro" data-ride="carousel">       
                         <!-- The slideshow -->
                         <div class="carousel-inner">
                             <div class="carousel-item active">
-                                <img src="{{ $project->featured ?? asset('images/project.png') }}">
+                                <img src="{{ $project->featured ?? asset('images/project.png') }}" class="d-block w-100 img-fluid">
                             </div>
                             @foreach($project->gallery as $gallery)
                                 <div class="carousel-item">
-                                    <img src="{{ $gallery->path }}">
+                                    <img src="{{ $gallery->path }}" class="d-block w-100 img-fluid">
                                 </div>
                             @endforeach
                         </div>
@@ -67,7 +66,6 @@
                             <span class="fal fa-arrow-right"></span>
                         </a>
                     </div><br>
-                    <button class="btn btn-artee float-right">View Album</button>
                 </div>
             </div>
         </div>
