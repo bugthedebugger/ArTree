@@ -3,6 +3,7 @@
 @section('body')
     <div class="container-fluid">
         <div class="hero">
+            <img src="images/hero.png" class="featImg">
             <div class="container">
                 <div class="desc">
                     <span class="titleHead">{{ $featuredProject->name ?? 'No featured projects yet.' }}</span><br>

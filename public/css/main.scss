@@ -114,7 +114,6 @@ a:hover {
 
 /* Hero Section */
 .hero {
-	background-image: url('../images/hero.png');
 	background-color: $primary;
 	background-size: cover;
 	background-repeat: no-repeat;
@@ -122,6 +121,12 @@ a:hover {
 	height: 100vh;
 	position: relative;
 	z-index: 0;
+}
+
+.featImg {
+	width: 100%;
+	height: 100vh;
+	background-size: cover;
 }
 
 .desc {

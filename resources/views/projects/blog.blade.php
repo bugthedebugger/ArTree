@@ -41,7 +41,7 @@
                 </div>
             </div>
             <div class="col-md-8">
-                <div style="">
+                <div>
                     <div id="demo" class="carousel slide arteeCaro" data-ride="carousel">       
                         <!-- The slideshow -->
                         <div class="carousel-inner">
