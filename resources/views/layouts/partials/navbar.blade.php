@@ -12,7 +12,7 @@
                 <!-- Dropdown -->
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-                    PROJECTS
+                        PROJECTS
                     </a>
                     <div class="dropdown-menu">
                         @if($projectYears != null)
