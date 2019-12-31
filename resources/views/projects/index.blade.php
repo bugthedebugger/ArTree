@@ -9,7 +9,7 @@
             <div class="row">
                 <div class="col-md-4">
                     <div class="card">
-                        <img class="card-img-top" src="{{ asset('images/eye.png') }}" alt="Card image">
+                        <img class="card-img-top cardImg" src="{{ asset('images/eye.png') }}" alt="Card image">
                         <div class="card-body">
                             <p class="card-title">
                                 <i class="fal fa-calendar"></i>&nbsp; 
@@ -30,7 +30,7 @@
                 @foreach($year->projects()->where('hidden', false)->get() as $project)
                     <div class="col-md-4">
                         <div class="card">
-                            <img class="card-img-top" src="{{ $project->featured }}" alt="Card image">
+                            <img class="card-img-top cardImg" src="{{ $project->featured }}" alt="Card image">
                             <div class="card-body">
                                 <p class="card-title">
                                     <i class="fal fa-calendar"></i>&nbsp; 

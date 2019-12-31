@@ -264,7 +264,7 @@ a:hover {
 
 .img-fluid {
 	height: 400px;
-	object-fit: contain;
+	object-fit: cover;
 }
 
 .blogTitle {
@@ -280,4 +280,15 @@ a:hover {
 
 .someSpace {
 	padding: 0px 10px;
+}
+
+.cardImg {
+	width: 100%;
+	height: 200px;
+	object-fit: cover;
+}
+
+.eventImg {
+	width: 100%;
+	object-fit: cover;
 }
