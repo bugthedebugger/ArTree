@@ -24,11 +24,19 @@
                             <td class="someSpace">{{ round(strlen(strip_tags($project->body))/200) }} min read</td>
                         </tr>
                     </table><br>
-                    <div class="aboutTagline">
+                    <!--<div class="aboutTagline">
                         <i class="fas fa-quote-left"></i>
                         <p>
                             "Although throughout the history, Nepal 's one of the best exports have been garments and textiles , general Nepali people started to loose their connection with it." 
                         </p>
+                    </div>-->
+                    <div style="position:fixed">
+                        <h6>Like what you see?</h6>
+                        <div class="blogBookmark">
+                            <i class="fal fa-bookmark share"></i>
+                            <i class="fab fa-twitter share"></i>
+                            <i class="fab fa-facebook share"></i>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -63,11 +71,7 @@
         <br><br>
         <div class="row">
             <div class="col-md-4">
-                <div class="blogBookmark">
-                    <i class="fal fa-bookmark share"></i>
-                    <i class="fab fa-twitter share"></i>
-                    <i class="fab fa-facebook share"></i>
-                </div>
+                
             </div>
             <div class="col-md-8">
                 <div style="text-align:justify">
