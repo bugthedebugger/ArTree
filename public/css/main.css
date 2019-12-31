@@ -45,6 +45,7 @@ a:hover {
 
 .page {
   margin-top: 120px;
+  background: transparent;
 }
 
 .container-fluid {
