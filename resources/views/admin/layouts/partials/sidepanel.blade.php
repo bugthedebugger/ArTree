@@ -12,6 +12,8 @@
         <li class="list-group-item">
             <a href="{{ route('admin-categories') }}" class="">Categories</a>
         </li>
-        <li class="list-group-item">Settings</li>
+        <li class="list-group-item">
+            <a href="{{ route('admin-settings') }}" class="">Settings</a>
+        </li>
     </ul>
 </div>

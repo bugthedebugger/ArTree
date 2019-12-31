@@ -40,14 +40,14 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
 
     Route::get('/gallery/{id}', 'Admin\GalleryController@getImages')->name('admin-project-gallery');
     Route::post('/gallery/{id}/upload', 'Admin\GalleryController@uploadFile')->name('admin-project-gallery-upload');
+
+    Route::get('/settings', 'Admin\SettingsController@index')->name('admin-settings');
+    Route::post('/settings/store', 'Admin\SettingsController@store')->name('admin-settings-store');
 });
 
 
 Route::get('/', 'LandingPageController@index')->name('landing-page');
-
-Route::get('/about', function(){
-    return view('about.about');
-});
+Route::get('/about', 'AboutUsController@index')->name('about-us');
 
 Route::get('/bio', function(){
     return view('bio.bio');

@@ -25,7 +25,7 @@
                     </div>
                 </li> 
                 <li class="nav-item">
-                    <a class="nav-link" href="#">ABOUT</a>
+                    <a class="nav-link" href="{{ route('about-us') }}">ABOUT</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">CONTACT</a>
