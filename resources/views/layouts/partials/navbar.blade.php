@@ -34,17 +34,17 @@
             </ul>
             <ul class="navbar-nav mr-auto">
                 <li class="">
-                    <a class="nav-link" href="#">
+                    <a target="_blank" class="nav-link" href="{{ $settings->facebook ?? '#' }}">
                         <i class="fab fa-facebook"></i>
                     </a>
                 </li>
                 <li class="">
-                    <a class="nav-link" href="#">
+                    <a target="_blank" class="nav-link" href="{{ $settings->instagram ?? '#' }}">
                         <i class="fab fa-instagram"></i>
                     </a>
                 </li>
                 <li class="">
-                    <a class="nav-link" href="#">
+                    <a target="_blank" class="nav-link" href="{{ $settings->youtube ?? '#' }}">
                         <i class="fab fa-youtube"></i>
                     </a>
                 </li>
