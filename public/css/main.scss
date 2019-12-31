@@ -253,6 +253,12 @@ a:hover {
 }
 
 .arteeCaro {
+	background: $primary;
+}
+
+.img-fluid {
+	height: 400px;
+	object-fit: contain;
 }
 
 .blogTitle {

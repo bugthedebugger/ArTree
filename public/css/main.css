@@ -239,6 +239,16 @@ a:hover {
   padding: 0px 10px;
 }
 
+.arteeCaro {
+  background: #da2d2d;
+}
+
+.img-fluid {
+  height: 400px;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
 .blogTitle {
   width: 600px;
   position: relative;
