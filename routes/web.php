@@ -43,6 +43,9 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
 
     Route::get('/settings', 'Admin\SettingsController@index')->name('admin-settings');
     Route::post('/settings/store', 'Admin\SettingsController@store')->name('admin-settings-store');
+
+    Route::get('/team', 'Admin\TeamController@index')->name('admin-team');
+    Route::get('/team/create', 'Admin\TeamController@create')->name('admin-team-create');
 });
 
 

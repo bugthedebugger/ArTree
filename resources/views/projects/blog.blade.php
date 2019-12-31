@@ -1,7 +1,10 @@
 @extends('layouts.artree')
 
-@section('body')
+@section('title')
+{{ $project->projectYear->year }} | {{ $project->name }}
+@endsection
 
+@section('body')
 <div class="container">
     <div class="page">
         <div class="row">
