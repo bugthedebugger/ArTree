@@ -8,6 +8,7 @@ Home
     <div class="container-fluid">
         <div class="hero">
             <img src="{{ $featuredProject->featured ?? asset('images/hero.png') }}" class="featImg">
+            <div class="overlay"></div>
             <div class="container">
                 <div class="desc">
                     <span class="titleHead">{{ $featuredProject->name ?? 'No featured projects yet.' }}</span><br>
