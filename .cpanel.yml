@@ -1,0 +1,14 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/artreene/public_html/
+    - export REPO=/home/artreene/repositories/ArTree
+    - php $REPO/composer.phar install > $DEPLOYPATH/composer-log.txt
+    - /bin/cp -Rf /home/artreene/repositories/ArTree/* $DEPLOYPATH
+    - /bin/cp -Rf /home/artreene/public_html/public/css $DEPLOYPATH
+    - /bin/cp -Rf /home/artreene/public_html/public/images $DEPLOYPATH
+    - /bin/cp -Rf /home/artreene/public_html/public/js $DEPLOYPATH
+    - /bin/cp -Rf /home/artreene/public_html/public/webfonts $DEPLOYPATH
+    - php artisan migrate
+    - php artisan db:seed
+    - php artisan storage:link
