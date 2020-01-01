@@ -69,7 +69,7 @@ Home
             <div class="row">
                 <div class="col-md-6">
                     <h5 style="float:left;">Instagram</h5>
-                    <button class="btn btn-artee" style="float:right">Follow</button><br><br>
+                    <a class="btn btn-artee" href="{{ $settings->instagram ?? '#' }}" style="float:right">Follow</a><br><br>
                     <div class="row">
                         <div class="col-md-4">
                             <div class="grey"></div>
@@ -105,8 +105,8 @@ Home
                     </div><br>
                 </div>
                 <div class="col-md-6">
-                    <h5 style="float:left;">Youtube</h5>
-                    <button class="btn btn-artee" style="float:right">Follow</button><br><br>
+                    <h5 style="float:left;">Facebook</h5>
+                    <a class="btn btn-artee" href="{{ $settings->youtube ?? '#' }}" style="float:right">Follow</a><br><br>
                     <div class="row">
                         <div class="col-md-12">
                             <div class="grey" style="height:332px"></div>
