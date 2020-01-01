@@ -7,5 +7,5 @@ deployment:
     - /bin/cp -R /home/artreene/repositories/ArTree/* $DEPLOYPATH
     - /bin/cp -R /home/artreene/public_html/public/css $DEPLOYPATH
     - /bin/cp -R /home/artreene/public_html/public/images $DEPLOYPATH
-    - /bin/cp -R /home/artreene/public_html/public/js $DEPLOYPATH
     - /bin/cp -R /home/artreene/public_html/public/webfonts $DEPLOYPATH
+    - /bin/cp -R /home/artreene/public_html/public/js $DEPLOYPATH
