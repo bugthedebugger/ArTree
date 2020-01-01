@@ -18,6 +18,7 @@ Home
     </div>
 
     <div class="container">
+        <br/><br/>
         <div class="news">
             <h1>News and Updates</h1><br>
             <div class="row">
