@@ -48,17 +48,16 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     Route::get('/team/create', 'Admin\TeamController@create')->name('admin-team-create');
     Route::post('/team/store', 'Admin\TeamController@store')->name('admin-team-store');
     Route::get('/team/edit/{member}', 'Admin\TeamController@edit')->name('admin-team-edit');
+    Route::post('/team/update/{member}', 'Admin\TeamController@update')->name('admin-team-update');
+    Route::get('/team/hide/{member}', 'Admin\TeamController@hide')->name('admin-team-hide');
+    Route::get('/team/publish/{member}', 'Admin\TeamController@publish')->name('admin-team-publish');
 });
 
 
 Route::get('/', 'LandingPageController@index')->name('landing-page');
 Route::get('/about', 'AboutUsController@index')->name('about-us');
-
-Route::get('/bio', function(){
-    return view('bio.bio');
-});
-
+Route::get('/about/bio/{member}', 'BioController@index')->name('bio');
 Route::get('/projects/{year}', 'ProjectsController@index')->name('projects-filtered');
 Route::get('/projects/{year}/{project}', 'ProjectsController@read')->name('projects-read');
-
+Route::get('/contact-us', 'ContactusController@index')->name('contact-us');
 

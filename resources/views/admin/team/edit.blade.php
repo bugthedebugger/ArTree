@@ -7,7 +7,7 @@
 @section('content')
 <div class="container">
     <div class="card">
-        <form action="{{ route('admin-team-store') }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('admin-team-update', $member) }}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="card-header">
                 Edit Information
@@ -79,7 +79,7 @@
                         Facebook
                     </label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control @error('facebook') is-invalid @enderror" name="facebook" id="facebook" placeholder="e.g. URL">
+                        <input type="text" value="{{ $member->facebook }}" class="form-control @error('facebook') is-invalid @enderror" name="facebook" id="facebook" placeholder="e.g. URL">
                         @error('facebook')
                             <div class="invalid-feedback">
                                 {{ $message }}
@@ -92,7 +92,7 @@
                         Instagram
                     </label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control @error('instagram') is-invalid @enderror" name="instagram" id="instagram" placeholder="e.g. URL">
+                        <input type="text" value="{{ $member->instagram }}" class="form-control @error('instagram') is-invalid @enderror" name="instagram" id="instagram" placeholder="e.g. URL">
                         @error('instagram')
                             <div class="invalid-feedback">
                                 {{ $message }}
@@ -105,7 +105,7 @@
                         YouTube
                     </label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control @error('youtube') is-invalid @enderror" name="youtube" id="youtube" placeholder="e.g. URL">
+                        <input type="text" value="{{ $member->youtube }}" class="form-control @error('youtube') is-invalid @enderror" name="youtube" id="youtube" placeholder="e.g. URL">
                         @error('youtube')
                             <div class="invalid-feedback">
                                 {{ $message }}
@@ -118,7 +118,7 @@
                         Twitter
                     </label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control @error('twitter') is-invalid @enderror" name="twitter" id="twitter" placeholder="e.g. URL">
+                        <input type="text" value="{{ $member->twitter }}" class="form-control @error('twitter') is-invalid @enderror" name="twitter" id="twitter" placeholder="e.g. URL">
                         @error('twitter')
                             <div class="invalid-feedback">
                                 {{ $message }}
@@ -131,7 +131,7 @@
                         Bio
                     </label>
                     <div class="col-sm-10">
-                        <textarea rows="15" cols="100" class="form-control @error('bio') is-invalid @enderror" name="bio" id="bio" placeholder="e.g. It's me Mario." required></textarea>
+                        <textarea rows="15" cols="100" class="form-control @error('bio') is-invalid @enderror" name="bio" id="bio" placeholder="e.g. It's me Mario." required>{{ $member->bio }}</textarea>
                         @error('bio')
                             <div class="invalid-feedback">
                                 {{ $message }}

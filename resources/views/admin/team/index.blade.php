@@ -40,9 +40,9 @@
                             <td>
                                 <a href="{{ route('admin-team-edit', $member) }}" class="btn btn-primary">Edit</a>
                                 @if($member->hidden)
-                                    <a href="" class="btn btn-success">Publish</a>
+                                    <a href="{{ route('admin-team-publish', $member) }}" class="btn btn-success">Publish</a>
                                 @else
-                                    <a href="" class="btn btn-secondary">Hide</a>
+                                    <a href="{{ route('admin-team-hide', $member) }}" class="btn btn-secondary">Hide</a>
                                 @endif
                             </td>
                         </tr>
