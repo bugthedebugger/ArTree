@@ -279,7 +279,7 @@ a:hover {
 
 .eventImg {
   width: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
+  -o-object-fit: fill;
+     object-fit: fill;
 }
 /*# sourceMappingURL=main.css.map */
