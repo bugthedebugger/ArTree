@@ -37,7 +37,7 @@ class TeamController extends Controller
         \DB::beginTransaction();
         try {
             $temp_path = $request->photo->store($upload_path);
-            $file_path = $temp_path;
+            $file_path = str_replace('public/uploads', 'uploads', Storage::url($temp_path));;
             Team::create([
                 'name' => $request->name,
                 'photo' => $file_path,
@@ -82,7 +82,7 @@ class TeamController extends Controller
         try {
             if($request->photo != null) {
                 $temp_path = $request->photo->store($upload_path);
-                $file_path = $temp_path;
+                $file_path = str_replace('public/uploads', 'uploads', Storage::url($temp_path));
             } else {
                 $file_path = $member->photo;
             }
