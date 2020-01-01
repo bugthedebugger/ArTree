@@ -1,7 +1,10 @@
 @extends('layouts.artree')
 
-@section('body')
+@section('title')
+Projects | {{ $year->year }}
+@endsection
 
+@section('body')
 <div class="container">
     <div class="page">
         @if($year->projects->count() == 0 || $year->projects()->where('hidden', false)->get()->count() == 0)
@@ -38,7 +41,7 @@
                                 </p>
                                 <p class="card-text">
                                     <strong>{{ $project->name }}</strong> <br>
-                                    ... {{ substr(strip_tags($project->body), 10, 200) }} ...
+                                    ... {{ substr(strip_tags($project->body), 10, 150) }} ...
                                 </p>
                                 <a href="{{ route('projects-read', ['year' => $year->year, 'project' => $project]) }}" class="btn btn-artee">Read More</a>
                             </div>

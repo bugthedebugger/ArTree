@@ -100,7 +100,7 @@ Artree Settings
                         About Us
                     </label>
                     <div class="col-sm-10">
-                        <textarea rows="15" cols="100" type="number" min="2000" class="form-control @error('about-us') is-invalid @enderror" name="about-us" id="about-us" placeholder="e.g. We are awesome!" required>{{ $settings->about ?? '' }}</textarea>
+                        <textarea rows="15" cols="100" class="form-control @error('about-us') is-invalid @enderror" name="about-us" id="about-us" placeholder="e.g. We are awesome!" required>{{ $settings->about ?? '' }}</textarea>
                         @error('about-us')
                             <div class="invalid-feedback">
                                 {{ $message }}

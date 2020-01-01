@@ -1,7 +1,7 @@
 @extends('layouts.artree')
 
 @section('title')
-{{ $project->projectYear->year }} | {{ $project->name }}
+Projects | {{ $project->projectYear->year }} | {{ $project->name }}
 @endsection
 
 @section('body')

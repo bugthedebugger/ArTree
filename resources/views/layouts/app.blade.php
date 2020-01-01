@@ -92,6 +92,9 @@
         @endif
         @if ($errors->any())
             toastr.error("Something went wrong!");
+            @foreach($errors->all() as $error) 
+                toastr.error('{{ $error }}');
+            @endforeach
         @endif
     </script>
 </body>

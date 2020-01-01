@@ -1,9 +1,14 @@
 @extends('layouts.artree')
 
+@section('title')
+Home
+@endsection
+
 @section('body')
     <div class="container-fluid">
         <div class="hero">
             <img src="{{ $featuredProject->featured ?? asset('images/hero.png') }}" class="featImg">
+            <div class="overlay"></div>
             <div class="container">
                 <div class="desc">
                     <span class="titleHead">{{ $featuredProject->name ?? 'No featured projects yet.' }}</span><br>
@@ -14,6 +19,7 @@
     </div>
 
     <div class="container">
+        <br/><br/>
         <div class="news">
             <h1>News and Updates</h1><br>
             <div class="row">
@@ -47,17 +53,17 @@
                                     {{ Carbon\Carbon::parse($project->project_date)->format('l jS \\of F Y') }}
                                 </p>
                                 <p class="card-text">
-                                    <strong>Some cool Title</strong> <br>
-                                    ... and African countries. According to the International Organization of Migration
-                                    (IOM) for the only thing that matters is the fact that...
+                                    <strong>{{ $project->name }}</strong> <br>
+                                    ... {{ substr(strip_tags($project->body), 10, 150) }} ...
                                 </p>
-                                <a href="#" class="btn btn-artee">Read More</a>
+                                <a href="{{ route('projects-read', ['year' => $project->projectYear->year, 'project' => $project]) }}" class="btn btn-artee">Read More</a>
                             </div>
                         </div>
                     </div>
                 @endforeach
             </div>
         </div>
+        <br/><br/>
         <div class="news">
             <h1>Social Feeds</h1><br>
             <div class="row">
