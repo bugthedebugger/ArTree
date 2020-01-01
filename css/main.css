@@ -215,6 +215,7 @@ a:hover {
 .teamPic {
     width: 128px;
     height: 128px;
+    object-fit: cover;
 }
 
 .socialIcons {
