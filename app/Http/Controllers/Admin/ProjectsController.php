@@ -69,7 +69,7 @@ class ProjectsController extends Controller
         \DB::beginTransaction();
         try {
             $file = $featured->store($upload_path);
-            $file_path = Storage::url($file);
+            $file_path = $file_path = str_replace('public/uploads', 'uploads', Storage::url($file));
             $project = Project::create([
                 'name' => $name,
                 'project_date' => $project_date,
@@ -154,7 +154,7 @@ class ProjectsController extends Controller
             $file_path = $project->featured;
             if($featured != null) {
                 $file = $featured->store($upload_path);
-                $file_path = Storage::url($file);
+                $file_path = str_replace('public/uploads', 'uploads', Storage::url($file));
             }
             $project->update([
                 'name' => $name,
