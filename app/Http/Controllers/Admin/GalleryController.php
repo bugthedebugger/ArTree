@@ -23,7 +23,7 @@ class GalleryController extends Controller
 
         $rules = [
             'photos' => 'required|array',
-            'photos.*' => 'mimes:jpeg,jpg,png,gif,svg|max:10000',
+            'photos.*' => 'mimes:jpeg,jpg,png,gif,svg|max:100000',
         ];
         $validator = Validator::make(['photos' => $photos], $rules);
 
@@ -35,7 +35,7 @@ class GalleryController extends Controller
         try{
             foreach($photos as $photo) {
                 $path = $photo->store($storage_path);
-                $file_path = Storage::url($path);
+                $file_path = $path;
                 Gallery::create([
                     'uuid' => $id,
                     'path' => $file_path,
