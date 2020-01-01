@@ -33,9 +33,9 @@ Projects | {{ $project->projectYear->year }} | {{ $project->name }}
                             "Although throughout the history, Nepal 's one of the best exports have been garments and textiles , general Nepali people started to loose their connection with it." 
                         </p>
                     </div>-->
-                    <div style="position:fixed">
+                    <div class="blogBookmark">
                         <h6>Like what you see?</h6>
-                        <div class="blogBookmark">
+                        <div>
                             <i class="fal fa-bookmark share"></i>
                             <i class="fab fa-twitter share"></i>
                             <i class="fab fa-facebook share"></i>

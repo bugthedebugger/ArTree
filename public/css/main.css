@@ -57,7 +57,7 @@ a:hover {
 ----------------------------------------------------- */
 @media (max-width: 768px) {
   .blogBookmark {
-    display: none;
+    position: relative !important;
   }
   .map {
     display: none;
@@ -66,7 +66,7 @@ a:hover {
     width: 100% !important;
   }
   .arteeCaro {
-    display: none;
+    display: block;
   }
   .nav-item {
     padding: 0;
