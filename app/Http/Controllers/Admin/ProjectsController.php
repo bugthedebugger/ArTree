@@ -63,7 +63,7 @@ class ProjectsController extends Controller
         $featured = $request->featured;
         $blog = $request->blog;
 
-        $upload_path = '/uploads';
+        $upload_path = 'public/uploads';
         // dd($request->all());
 
         \DB::beginTransaction();
@@ -147,7 +147,7 @@ class ProjectsController extends Controller
         $featured = $request->featured;
         $blog = $request->blog;
 
-        $upload_path = '/uploads';
+        $upload_path = 'public/uploads';
 
         \DB::beginTransaction();
         try {
