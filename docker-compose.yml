@@ -3,8 +3,8 @@ version: "3.6"
 services:
   mysql:
     image: mysql:5.7
-    container_name: mysql
-    hostname: mysql
+    container_name: artree-mysql
+    hostname: artree-mysql
     environment:
       - MYSQL_ROOT_PASSWORD_FILE=/run/secrets/db_root_password
       - MYSQL_DATABASE=artree
