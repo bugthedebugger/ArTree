@@ -234,7 +234,7 @@
                 </div>
                 <div class="form-group row">
                     <label class="col col-form-label">
-                        All the gallery images will be displayed here! Click on the image to copy the image url. 
+                        All the gallery images will be displayed here! Click on the image to copy the image url. Right click to delete an image.
                     </label><br>
                 </div>
                 <div id="gallery" class="form-group row">
@@ -258,14 +258,11 @@
 
     function changed(e) {
         var fileName = document.getElementById("inputGroupFile01").files[0].name;
-        console.log(fileName);
         var nextSibling = document.getElementById("fileLabel");
         nextSibling.innerText = fileName;
     }
 
     function toggleEvent(e) {
-        console.log('Here!!');
-        console.log(e.value);
         var enable;
         if (e.value == "yes")
             enable = true;
@@ -360,16 +357,57 @@
     }
 
     function copyURL(e) {
-        console.log(e.src);
         navigator.clipboard.writeText(e.src);
         toastr.success("Copied to clipboard.");
+    }
+
+    function deletePhoto(id) {
+        var galleryEl = document.getElementById("gallery");
+        galleryEl.innerHTML = '\
+        <div class="container">\
+            <b>Deleting please wait ... </b>\
+            <div class="spinner-grow text-primary" role="status">\
+                <span class="sr-only">Loading...</span>\
+            </div>\
+            <div class="spinner-grow text-secondary" role="status">\
+                <span class="sr-only">Loading...</span>\
+            </div>\
+            <div class="spinner-grow text-success" role="status">\
+                <span class="sr-only">Loading...</span>\
+            </div>\
+            <div class="spinner-grow text-danger" role="status">\
+                <span class="sr-only">Loading...</span>\
+            </div>\
+            <div class="spinner-grow text-warning" role="status">\
+                <span class="sr-only">Loading...</span>\
+            </div>\
+            <div class="spinner-grow text-info" role="status">\
+                <span class="sr-only">Loading...</span>\
+            </div>\
+        </div>';
+
+        var formData = new FormData();
+        formData.append('photo', id);
+
+        fetch("{{ route('admin-project-photo-delete') }}", {
+            method: "POST",
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
+            },
+            body: formData,
+        }).then((response) => {
+            response.text().then((data) => {
+                galleryEl.innerHTML = data;
+            });
+        });
+
+        toastr.success("Image deleted!");
     }
 
     $(document).ready(function() {
         tinymce.DOM.setHTML('blog', `{!! $project->body !!}`);
         loadGallery();
         var eventValue = document.querySelector('input[name="event"]:checked');
-        console.log(eventValue);
         if (eventValue.value == 'yes')
             toggleEvent(document.getElementById('yesEvent'));
         else

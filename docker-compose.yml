@@ -6,13 +6,16 @@ services:
     container_name: artree-mysql
     hostname: artree-mysql
     environment:
-      - MYSQL_ROOT_PASSWORD_FILE=/run/secrets/db_root_password
-      - MYSQL_DATABASE=artree
-      - MYSQL_USER=user
-      - MYSQL_PASSWORD_FILE=/run/secrets/db_password
+      MYSQL_ROOT_PASSWORD: "password"
+      MYSQL_DATABASE: "appdb"
+      MYSQL_USER: "user"
+      MYSQL_PASSWORD: "password"
     restart: unless-stopped
     ports:
       - 3311:3306
+    expose:
+      - 3311
+      - 3306
     volumes:
       - mysql-data:/var/lib/mysql
     secrets:

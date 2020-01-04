@@ -51,4 +51,21 @@ class GalleryController extends Controller
         $gallery = Gallery::where('uuid', $id)->get();
         return view('admin.projects.gallery', ['gallery' => $gallery]);
     }
+
+    public function delete(Request $request) {
+        // dd($request->photo);
+        $photo = Gallery::find($request->photo);
+        // dd($photo);
+        $uuid = $photo->uuid;
+        \DB::beginTransaction();
+        try {
+            $photo->delete();
+            \DB::commit();
+        } catch (\Exception $e) {
+            \DB::rollback();
+            \Log::error($e);
+        }
+        
+        return $this->getImages($uuid);
+    }
 }

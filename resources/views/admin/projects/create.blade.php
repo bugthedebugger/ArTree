@@ -234,7 +234,7 @@ New Project
                 </div>
                 <div class="form-group row">
                     <label class="col col-form-label">
-                        All the gallery images will be displayed here! Click on the image to copy the image url. 
+                        All the gallery images will be displayed here! Click on the image to copy the image url. Right click to delete an image.
                     </label><br>
                 </div>
                 <div id="gallery" class="form-group row">
@@ -318,6 +318,49 @@ New Project
                 galleryEl.innerHTML = data;
             });
         });
+    }
+
+    function deletePhoto(id) {
+        var galleryEl = document.getElementById("gallery");
+        galleryEl.innerHTML = '\
+        <div class="container">\
+            <b>Deleting please wait ... </b>\
+            <div class="spinner-grow text-primary" role="status">\
+                <span class="sr-only">Loading...</span>\
+            </div>\
+            <div class="spinner-grow text-secondary" role="status">\
+                <span class="sr-only">Loading...</span>\
+            </div>\
+            <div class="spinner-grow text-success" role="status">\
+                <span class="sr-only">Loading...</span>\
+            </div>\
+            <div class="spinner-grow text-danger" role="status">\
+                <span class="sr-only">Loading...</span>\
+            </div>\
+            <div class="spinner-grow text-warning" role="status">\
+                <span class="sr-only">Loading...</span>\
+            </div>\
+            <div class="spinner-grow text-info" role="status">\
+                <span class="sr-only">Loading...</span>\
+            </div>\
+        </div>';
+
+        var formData = new FormData();
+        formData.append('photo', id);
+
+        fetch("{{ route('admin-project-photo-delete') }}", {
+            method: "POST",
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
+            },
+            body: formData,
+        }).then((response) => {
+            response.text().then((data) => {
+                galleryEl.innerHTML = data;
+            });
+        });
+
+        toastr.success("Image deleted!");
     }
 
     function copyURL(e) {
