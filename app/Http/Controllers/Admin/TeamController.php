@@ -23,7 +23,7 @@ class TeamController extends Controller
         $this->validate($request, [
             'photo' => 'required|mimes:jpeg,jpg,png,gif,svg|max:10000',
             'name' => 'required|string',
-            'phone' => 'required',
+            'phone' => 'nullable',
             'email' => 'required|email',
             'facebook' => 'nullable',
             'instagram' => 'nullable',

@@ -12,7 +12,7 @@ Home
             <div class="container">
                 <div class="desc">
                     <span class="titleHead">{{ $featuredProject->name ?? 'No featured projects yet.' }}</span><br>
-                    {{-- <span class="tagHead">Opposite Dreams - The Politics of Nepal</span> --}}
+                    <span class="tagHead">Some tagline will go here!</span>
                 </div>
             </div>
         </div>
@@ -36,7 +36,7 @@ Home
                                         <i class="fal fa-calendar"></i>&nbsp; {{ Carbon\Carbon::parse($latestEvent->events->start_date)->format('l jS \\of F Y') }}<br>
                                         <i class="fal fa-clock"></i>&nbsp; {{ Carbon\Carbon::parse($latestEvent->events->start_time)->format('h:i A') }} - {{ Carbon\Carbon::parse($latestEvent->events->end_time)->format('h:i A') }} <br>
                                         <i class="fal fa-map-marker"></i>&nbsp; {{ $latestEvent->events->location }} <br>
-                                        <i class="fal fa-ticket"></i>&nbsp; {{ $latestEvent->events->entry_fee }} <br>
+                                        {{-- <i class="fal fa-ticket"></i>&nbsp; {{ $latestEvent->events->entry_fee }} <br> --}}
                                     </div>
                                 </div>
                             </div>
@@ -70,56 +70,18 @@ Home
                 <div class="col-md-6">
                     <h5 style="float:left;">Instagram</h5>
                     <a class="btn btn-artee" href="{{ $settings->instagram ?? '#' }}" style="float:right">Follow</a><br><br>
-                    <div class="row">
-                        <div class="col-md-4">
-                            <div class="grey"></div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="grey"></div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="grey"></div>
-                        </div>
-                    </div><br>
-                    <div class="row">
-                        <div class="col-md-4">
-                            <div class="grey"></div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="grey"></div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="grey"></div>
-                        </div>
-                    </div><br>
-                    <div class="row">
-                        <div class="col-md-4">
-                            <div class="grey"></div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="grey"></div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="grey"></div>
-                        </div>
-                    </div><br>
+                    <!-- SnapWidget -->
+                    <script src="https://snapwidget.com/js/snapwidget.js"></script>
+                    <iframe src="https://snapwidget.com/embed/776121" class="snapwidget-widget" allowtransparency="true" frameborder="0" scrolling="no" style="border:none; overflow:hidden;  width:100%; "></iframe>
+                    <br>
                 </div>
                 <div class="col-md-6">
                     <h5 style="float:left;">Facebook</h5>
-                    <a class="btn btn-artee" href="{{ $settings->youtube ?? '#' }}" style="float:right">Follow</a><br><br>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="grey" style="height:332px"></div>
-                        </div>
-                    </div><br>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="grey" style="height:150px"></div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="grey" style="height:150px"></div>
-                        </div>
-                    </div><br>
+                    <a class="btn btn-artee" href="{{ $settings->facebook ?? '#' }}" style="float:right">Like</a><br><br>
+                    <div class="text-center">
+                        <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FArtree-Nepal-295759690592034%2F&tabs=timeline&width=340&height=540&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId=138713336895364" width="340" height="540" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
+                    </div>
+                    <br>
                 </div>
             </div>
         </div>
