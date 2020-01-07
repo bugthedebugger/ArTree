@@ -53,7 +53,7 @@ Home
                 @endif
                 @foreach($projects as $project)
                     <div class="col-md-4">
-                        <div class="card">
+                        <div class="card" style="height:100%;">
                             <img class="card-img-top cardImg" src="{{ $project->featured ?? asset('images/eye.png') }}" alt="Card image">
                             <div class="card-body">
                                 <p class="card-title">
