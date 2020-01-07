@@ -1,6 +1,10 @@
 /* Fonts */
 @import url("https://fonts.googleapis.com/css?family=Playfair+Display|Raleway&display=swap");
 /* Variables */
+html {
+  height: 100%;
+}
+
 /* Global Styling */
 body {
   padding: 0px;
@@ -8,6 +12,9 @@ body {
   background: #fafafa;
   font-family: Raleway;
   line-height: 2;
+  min-height: 100%;
+  position: relative;
+  padding-bottom: [footer-height];
 }
 
 h1 {
@@ -138,7 +145,7 @@ a:hover {
 
 /* News and Updates */
 .news {
-  margin-top: 100px;
+  margin-top: 80px;
 }
 
 .card-title {
@@ -190,10 +197,13 @@ a:hover {
   background: #212121;
   color: #ffffff;
   padding: 40px;
-  width: 100%;
-  bottom: 0;
   font-size: 0.8em;
-  margin-top: 100px;
+  height: 100px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: [footer-height];
 }
 
 /* About Page */
