@@ -14,6 +14,7 @@ class Event extends Model
         'start_time',
         'end_time',
         'entry_fee',
+        'photo',
     ];
 
     public function project() {

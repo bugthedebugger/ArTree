@@ -36,7 +36,7 @@ Home
                         <div class="card" style="height:100%;">
                             <div class="row h-100">
                                 <div class="col-md-6 my-auto">
-                                    <img src="{{ $latestEvent->featured ?? asset('images/feat.jpeg') }}" class="eventImg">  
+                                    <img src="{{ $latestEvent->events->photo ?? asset('images/feat.jpeg') }}" class="eventImg">  
                                 </div>
                                 <div class="col-md-6 my-auto">
                                     <div style="padding:40px;">

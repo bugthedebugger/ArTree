@@ -121,6 +121,23 @@
                     </div>
                 </div>
                 <div class="form-group row">
+                    <label for="event-photo" class="col-sm-2 col-form-label font-weight-bold">
+                        Event Photo
+                    </label>
+                    <div class="input-group col-sm-10">
+                        <div class="custom-file @error('event-photo') is-invalid @enderror">
+                            <input name="event-photo" onchange="eventImagechanged(this)" type="file" class="custom-file-input event-class" id="inputGroupFile03"
+                            aria-describedby="inputGroupFileAddon03" disabled>
+                            <label id="eventFileLabel" class="custom-file-label" for="inputGroupFile03">Choose file</label>
+                        </div>
+                        @error('event-photo')
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                        @enderror
+                    </div>
+                </div>
+                <div class="form-group row">
                     <label for="event-location" class="col-sm-2 col-form-label font-weight-bold">
                         Event Location
                     </label>
@@ -179,19 +196,6 @@
                     <div class="col-sm-10">
                         <input type="time" value="{{ $project->events->end_time ?? '' }}"  class="form-control event-class @error('event-end-time') is-invalid @enderror" name="event-end-time" id="event-end-time" placeholder="e.g. 12:00 pm" disabled>
                         @error('event-end-time')
-                            <div class="invalid-feedback">
-                                {{ $message }}
-                            </div>
-                        @enderror
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label for="event-entry-fee" class="col-sm-2 col-form-label font-weight-bold">
-                        Event Entry Fee
-                    </label>
-                    <div class="col-sm-10">
-                        <input type="text" value="{{ $project->events->entry_fee ?? '' }}" class="form-control event-class @error('event-entry-fee') is-invalid @enderror" name="event-entry-fee" id="event-entry-fee" placeholder="e.g. Rs.1200/- or Free" disabled>
-                        @error('event-entry-fee')
                             <div class="invalid-feedback">
                                 {{ $message }}
                             </div>
@@ -259,6 +263,13 @@
     function changed(e) {
         var fileName = document.getElementById("inputGroupFile01").files[0].name;
         var nextSibling = document.getElementById("fileLabel");
+        nextSibling.innerText = fileName;
+    }
+
+    function eventImagechanged(e) {
+        var fileName = document.getElementById("inputGroupFile03").files[0].name;
+        console.log(fileName);
+        var nextSibling = document.getElementById("eventFileLabel");
         nextSibling.innerText = fileName;
     }
 

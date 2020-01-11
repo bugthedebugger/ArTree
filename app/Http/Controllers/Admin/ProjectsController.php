@@ -38,6 +38,7 @@ class ProjectsController extends Controller
             'category' => 'required',
             'project-year' => 'required',
             'event' => 'required',
+            'event-photo' => 'nullable|mimes:jpeg,jpg,png,gif,svg|max:10000',
             'event-location' => 'nullable',
             'event-start-date' => 'nullable',
             'event-end-date' => 'nullable',
@@ -62,10 +63,10 @@ class ProjectsController extends Controller
         $event_entry_fee = $request['event-entry-fee'];
         $featured = $request->featured;
         $blog = $request->blog;
+        $event_photo = $request['event-photo'];
 
         $upload_path = 'public/uploads';
-        // dd($request->all());
-
+        
         \DB::beginTransaction();
         try {
             $file = $featured->store($upload_path);
@@ -83,7 +84,10 @@ class ProjectsController extends Controller
                 'uuid' => $uuid,
             ]);
             if ($event) {
+                $event_photo_file = $event_photo->store($upload_path);
+                $event_photo_path = str_replace('public/uploads', 'uploads', Storage::url($event_photo_file));
                 $project->events()->create([
+                    'photo' => $event_photo_path,
                     'location' => $event_location,
                     'start_date' => $event_start_date,
                     'end_date' => $event_end_date,
@@ -122,6 +126,7 @@ class ProjectsController extends Controller
             'category' => 'required',
             'project-year' => 'required',
             'event' => 'required',
+            'event-photo' => 'nullable|mimes:jpeg,jpg,png,gif,svg|max:10000',
             'event-location' => 'nullable',
             'event-start-date' => 'nullable',
             'event-end-date' => 'nullable',
@@ -146,6 +151,7 @@ class ProjectsController extends Controller
         $event_entry_fee = $request['event-entry-fee'];
         $featured = $request->featured;
         $blog = $request->blog;
+        $event_photo = $request['event-photo'];
 
         $upload_path = 'public/uploads';
 
@@ -170,7 +176,10 @@ class ProjectsController extends Controller
             if ($event) {
                 $event = $project->events;
                 if ($event == null) {
+                    $event_photo_file = $event_photo->store($upload_path);
+                    $event_photo_path = str_replace('public/uploads', 'uploads', Storage::url($event_photo_file));
                     Event::create([
+                        'photo' => $event_photo_path,
                         'project_id' => $project->id,
                         'location' => $event_location,
                         'start_date' => $event_start_date,
@@ -180,7 +189,14 @@ class ProjectsController extends Controller
                         'entry_fee' => $event_entry_fee,
                     ]);
                 } else {
+                    if($event_photo != null) {
+                        $event_photo_file = $event_photo->store($upload_path);
+                        $event_photo_path = str_replace('public/uploads', 'uploads', Storage::url($event_photo_file));
+                    } else {
+                        $event_photo_path = $project->event->photo;
+                    }
                     $project->events()->update([
+                        'photo' => $event_photo_path,
                         'location' => $event_location,
                         'start_date' => $event_start_date,
                         'end_date' => $event_end_date,
