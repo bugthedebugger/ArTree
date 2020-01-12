@@ -29,7 +29,7 @@ class AppServiceProvider extends ServiceProvider
         $years = null;
         $settings = null;
         try {
-            $years = Projectyear::where('hidden', false)->orderBy('year', 'asc')->get();
+            $years = Projectyear::where('hidden', false)->orderBy('year', 'desc')->get();
             $settings = Setting::first();
         } catch (\Exception $e) {
             \Log::error($e);
