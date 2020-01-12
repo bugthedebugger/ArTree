@@ -193,7 +193,7 @@ class ProjectsController extends Controller
                         $event_photo_file = $event_photo->store($upload_path);
                         $event_photo_path = str_replace('public/uploads', 'uploads', Storage::url($event_photo_file));
                     } else {
-                        $event_photo_path = $project->event->photo;
+                        $event_photo_path = $project->events->photo;
                     }
                     $project->events()->update([
                         'photo' => $event_photo_path,
