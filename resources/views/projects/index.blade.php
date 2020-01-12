@@ -30,7 +30,7 @@ Projects | {{ $year->year }}
         @else
             <h1>Projects from {{ $year->year }}</h1><br>
             <div class="row">
-                @foreach($year->projects()->where('hidden', false)->get() as $project)
+                @foreach($year->projects()->where('hidden', false)->orderBy('project_year', 'asc')->get() as $project)
                     <div class="col-md-4">
                         <div class="card" style="height: 100%;">
                             <img class="card-img-top cardImg" src="{{ $project->featured }}" alt="Card image">
