@@ -15,10 +15,10 @@ Home
                     <span class="tagHead">
                         @if($featuredProject->event ?? false)
                             {{ Carbon\Carbon::parse($featuredProject->events->start_date ?? Carbon\Carbon::now())->format('l jS \\of F Y') }} - {{ Carbon\Carbon::parse($featuredProject->events->end_date)->format('l jS \\of F Y') }}
-                            : {{ $featuredProject->events->location }}
+                            : {{ $featuredProject->events->location ?? 'No location' }}
                         @else
                             {{ Carbon\Carbon::parse($featuredProject->project_date ?? Carbon\Carbon::now())->format('l jS \\of F Y') }}
-                            : {{ $featuredProject->location }}
+                            : {{ $featuredProject->location ?? 'No location'}}
                         @endif
                     </span>
                 </div>
