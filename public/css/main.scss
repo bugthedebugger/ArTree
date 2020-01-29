@@ -242,6 +242,8 @@ a:hover {
 
 .teamPic {
 	width: 128px;
+	height: 128px;
+	object-fit: cover;
 }
 
 .socialIcons {
@@ -262,7 +264,6 @@ a:hover {
 }
 
 .teamOthers {
-	background: #fff;
 	padding: 40px;
 }
 
