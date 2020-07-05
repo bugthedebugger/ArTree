@@ -37,40 +37,43 @@
         <div class="carousel-inner">
             <div class="carousel-item active">
                 <img
-                    src="https://www.w3schools.com/bootstrap4/ny.jpg"
+                    src="https://artreenepal.com/public/storage/uploads/nV3Bziq1BYBmAXLmt4aMuJcWJjop40FIGrdJwWxi.jpeg"
                     alt="Featured Project"
                 />
+                <div class="overlay"></div>
                 <div class="carousel-caption">
-                    <h1>Los Angeles</h1>
+                    <h1>Sydney Biennale Nirin</h1>
                     <p>Check out our awesome project</p>
                 </div>
             </div>
             <div class="carousel-item">
                 <img
-                    src="https://www.w3schools.com/bootstrap4/chicago.jpg"
+                    src="https://artreenepal.com/public/storage/uploads/lmn0GXtQQhdEelk4wQprM29xAWLTN4nKFWpMMRVf.jpeg"
                     alt="Featured Project"
                 />
+                <div class="overlay"></div>
                 <div class="carousel-caption">
-                    <h1>Chicago</h1>
+                    <h1>Dhaka Art Summit</h1>
                     <p>Check out our awesome project</p>
                 </div>
             </div>
             <div class="carousel-item">
                 <img
-                    src="https://www.w3schools.com/bootstrap4/la.jpg"
+                    src="https://artreenepal.com/public/storage/uploads/7sc06BAt4ztsNs3BGbfZ3vb3S3zRdcYZschc4xsi.jpeg"
                     alt="Featured Image"
                 />
+                <div class="overlay"></div>
                 <div class="carousel-caption">
-                    <h1>New York</h1>
+                    <h1>Maasinya Dastoor</h1>
                     <p>Check out our awesome project</p>
                 </div>
             </div>
         </div>
         <a class="carousel-control-prev" href="#demo" data-slide="prev">
-            <span class="carousel-control-prev-icon"></span>
+            <span class="far fa-arrow-left" style="font-size: 1.8rem;"></span>
         </a>
         <a class="carousel-control-next" href="#demo" data-slide="next">
-            <span class="carousel-control-next-icon"></span>
+            <span class="far fa-arrow-right" style="font-size: 1.8rem;"></span>
         </a>
     </div>
 </div>
@@ -97,6 +100,17 @@
                                 <br /><br />
                                 <i class="fal fa-calendar"></i>&nbsp;
                                 {{ Carbon\Carbon::parse($latestEvent->events->start_date)->format('l jS \\of F Y')
+
+
+
+
+
+
+
+
+
+
+
 
 
 
