@@ -183,8 +183,26 @@ a:hover {
   margin-top: 80px;
 }
 
+.card:hover {
+  -webkit-box-shadow: 0px 5px 15px #cdcdcd;
+          box-shadow: 0px 5px 15px #cdcdcd;
+  cursor: pointer;
+  -webkit-transition: 0.3s all;
+  transition: 0.3s all;
+}
+
 .card-title {
   font-size: 12px;
+}
+
+.cardLink {
+  text-decoration: none;
+  color: #000;
+}
+
+.cardLink:hover {
+  text-decoration: none;
+  color: #da2d2d;
 }
 
 /* Buttons */
