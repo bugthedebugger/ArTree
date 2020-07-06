@@ -111,6 +111,9 @@
 
 
 
+
+
+
                                 }}<br />
                                 <i class="fal fa-clock"></i>&nbsp;
                                 {{ Carbon\Carbon::parse($latestEvent->events->start_time)->format('h:i A') }}
@@ -160,13 +163,40 @@
     <div class="news">
         <h1>News media</h1>
         <br />
+        <div class="row">
+            <div class="col-md-4">
+                <a
+                    href="{{ route('projects-read', ['year' => $project->projectYear->year, 'project' => $project]) }}"
+                    class="cardLink"
+                >
+                    <div class="card" style="height: 100%;">
+                        <img
+                            class="card-img-top cardImg"
+                            src="{{ $project->featured ?? asset('images/eye.png') }}"
+                            alt="Card image"
+                        />
+                        <div class="card-body">
+                            <p class="card-title">
+                                <i class="fal fa-calendar"></i>&nbsp;
+                                {{ Carbon\Carbon::parse($project->project_date)->format('l jS \\of F Y') }}
+                            </p>
+                            <p class="card-text">
+                                <strong>{{ $project->name }}</strong> <br />
+                                {{ substr(strip_tags($project->body), 10, 150) }}
+                                ...
+                            </p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
     </div>
     <div class="news">
         <h1>Social Feeds</h1>
         <br />
         <div class="row">
             <div class="col-md-6">
-                <h5 style="float: left;">Instagram</h5>
+                <!-- <h5 style="float: left;">Instagram</h5> -->
                 <!-- <a
                     class="btn btn-artee"
                     href="{{ $settings->instagram ?? '#' }}"
@@ -186,7 +216,7 @@
                 <br />
             </div>
             <div class="col-md-6">
-                <h5 style="float: left;">Facebook</h5>
+                <!-- <h5 style="float: left;">Facebook</h5> -->
                 <!-- <a
                     class="btn btn-artee"
                     href="{{ $settings->facebook ?? '#' }}"
