@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
+
 use Illuminate\Support\Str;
 
 use App\Http\Controllers\Controller;
@@ -14,30 +15,34 @@ use Session;
 
 class ProjectsController extends Controller
 {
-    public function index() {
+    public function index()
+    {
         $projects = Project::orderBy('project_date', 'desc')->paginate(10);
         return view('admin.projects.index', ['projects' => $projects]);
     }
 
-    public function create() {
+    public function create()
+    {
         $galleryID = Str::uuid();
         $categories = Category::orderBy('name')->get();
         $years = Projectyear::orderBy('year')->get();
 
         return view('admin.projects.create')
-                ->with('galleryID', $galleryID)
-                ->with('categories', $categories)
-                ->with('years', $years);
+            ->with('galleryID', $galleryID)
+            ->with('categories', $categories)
+            ->with('years', $years);
     }
 
-    public function store(Request $request, $uuid) {
+    public function store(Request $request, $uuid)
+    {
         $this->validate($request, [
             'name' => 'required',
             'date' => 'date|nullable',
             'location' => 'string|nullable',
-            'category' => 'required',
-            'project-year' => 'required',
-            'event' => 'required',
+            'category' => 'nullable',
+            'project-year' => 'nullable',
+            'event' => 'nullable',
+            'news' => 'required',
             'event-photo' => 'nullable|mimes:jpeg,jpg,png,gif,svg|max:10000',
             'event-location' => 'nullable',
             'event-start-date' => 'nullable',
@@ -54,7 +59,8 @@ class ProjectsController extends Controller
         $location = $request->location;
         $category = $request->category;
         $project_year = $request['project-year'];
-        $event = $request->event == 'yes'? true: false;
+        $event = $request->event == 'yes' ? true : false;
+        $news = $request->news == 'true' ? true : false;
         $event_location = $request['event-location'];
         $event_start_date = $request['event-start-date'];
         $event_end_date = $request['event-end-date'];
@@ -66,7 +72,7 @@ class ProjectsController extends Controller
         $event_photo = $request['event-photo'];
 
         $upload_path = 'public/uploads';
-        
+
         \DB::beginTransaction();
         try {
             $file = $featured->store($upload_path);
@@ -76,6 +82,7 @@ class ProjectsController extends Controller
                 'project_date' => $project_date,
                 'location' => $location,
                 'event' => $event,
+                'news' => $news,
                 'featured' => $file_path,
                 'body' => $blog,
                 'hidden' => false,
@@ -106,19 +113,21 @@ class ProjectsController extends Controller
         return redirect()->back();
     }
 
-    public function edit(Project $project) {
+    public function edit(Project $project)
+    {
         $galleryID = $project->uuid;
         $categories = Category::orderBy('name')->get();
         $years = Projectyear::orderBy('year')->get();
 
         return view('admin.projects.edit')
-                ->with('project', $project)
-                ->with('galleryID', $galleryID)
-                ->with('categories', $categories)
-                ->with('years', $years);
-    } 
+            ->with('project', $project)
+            ->with('galleryID', $galleryID)
+            ->with('categories', $categories)
+            ->with('years', $years);
+    }
 
-    public function update(Request $request, Project $project) {
+    public function update(Request $request, Project $project)
+    {
         $this->validate($request, [
             'name' => 'required',
             'date' => 'date|nullable',
@@ -142,7 +151,7 @@ class ProjectsController extends Controller
         $location = $request->location;
         $category = $request->category;
         $project_year = $request['project-year'];
-        $event = $request->event == 'yes'? true: false;
+        $event = $request->event == 'yes' ? true : false;
         $event_location = $request['event-location'];
         $event_start_date = $request['event-start-date'];
         $event_end_date = $request['event-end-date'];
@@ -158,7 +167,7 @@ class ProjectsController extends Controller
         \DB::beginTransaction();
         try {
             $file_path = $project->featured;
-            if($featured != null) {
+            if ($featured != null) {
                 $file = $featured->store($upload_path);
                 $file_path = str_replace('public/uploads', 'uploads', Storage::url($file));
             }
@@ -189,7 +198,7 @@ class ProjectsController extends Controller
                         'entry_fee' => $event_entry_fee,
                     ]);
                 } else {
-                    if($event_photo != null) {
+                    if ($event_photo != null) {
                         $event_photo_file = $event_photo->store($upload_path);
                         $event_photo_path = str_replace('public/uploads', 'uploads', Storage::url($event_photo_file));
                     } else {
@@ -217,7 +226,8 @@ class ProjectsController extends Controller
         return redirect()->back();
     }
 
-    public function hide(Project $project) {
+    public function hide(Project $project)
+    {
         \DB::beginTransaction();
         try {
             $project->hidden = true;
@@ -232,7 +242,8 @@ class ProjectsController extends Controller
         return redirect()->back();
     }
 
-    public function unhide(Project $project) {
+    public function unhide(Project $project)
+    {
         \DB::beginTransaction();
         try {
             $project->hidden = false;

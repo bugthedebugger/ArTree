@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateProjectsTable extends Migration
+class CreateNewsMediaTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,23 +13,20 @@ class CreateProjectsTable extends Migration
      */
     public function up()
     {
-        Schema::create('projects', function (Blueprint $table) {
-            $table->softDeletes();
+        Schema::create('news_media', function (Blueprint $table) {
+
             $table->bigIncrements('id');
             $table->string('name');
             $table->date('project_date')->nullable();
             $table->string('location')->nullable();
-            $table->boolean('event')->default(false);
-            $table->boolean('news')->default(false);
             $table->string('featured');
             $table->longText('body');
             $table->boolean('hidden')->default(false);
             $table->string('uuid');
-            $table->unsignedInteger('category_id')->nullable();
-            $table->unsignedInteger('projectyear_id')->nullable();
             $table->timestamps();
         });
     }
+
     /**
      * Reverse the migrations.
      *
@@ -37,6 +34,6 @@ class CreateProjectsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('projects');
+        Schema::dropIfExists('news_media');
     }
 }

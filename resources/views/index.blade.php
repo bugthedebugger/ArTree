@@ -115,31 +115,50 @@
                     </div>
                 </div>
             </div>
-            @endif @foreach($projects as $project)
+            @endif
+            @foreach($projects as $project)
             <div class="col-md-4">
-                <a href="{{ route('projects-read', ['year' => $project->projectYear->year, 'project' => $project]) }}" class="cardLink">
-                    <div class="card" style="height: 100%;">
-                        <img class="card-img-top cardImg" src="{{ $project->featured ?? asset('images/eye.png') }}" alt="Card image" />
-                        <div class="card-body">
-                            <p class="card-title">
-                                <i class="fal fa-calendar"></i>&nbsp;
-                                {{ Carbon\Carbon::parse($project->project_date)->format('l jS \\of F Y') }}
-                            </p>
-                            <p class="card-text">
-                                <strong>{{ $project->name }}</strong> <br />
-                                {{ substr(strip_tags($project->body), 10, 150) }}
-                                ...
-                            </p>
-                        </div>
+                <div class="card" style="height: 100%;">
+                    <img class="card-img-top cardImg" src="{{ $project->featured ?? asset('images/eye.png') }}" alt="Card image" />
+                    <div class="card-body">
+                        <p class="card-title">
+                            <i class="fal fa-calendar"></i>&nbsp;
+                            {{ Carbon\Carbon::parse($project->project_date)->format('l jS \\of F Y') }}
+                        </p>
+                        <p class="card-text">
+                            <strong>{{ $project->name }}</strong> <br />
+                            {{ substr(strip_tags($project->body), 10, 150) }}
+                            ...
+                        </p>
                     </div>
-                </a>
+                </div>
+
             </div>
             @endforeach
         </div>
     </div>
     <br /><br />
     <div class="news">
-        <h1>News media</h1>
+        <h1>News media</h1><br><br>
+        @foreach($news as $new)
+
+        <div class="card" style="height: 100%;">
+            <img class="card-img-top cardImg" src="{{ $new->featured ?? asset('images/eye.png') }}" alt="Card image" />
+            <div class="card-body">
+                <p class="card-title">
+                    <i class="fal fa-calendar"></i>&nbsp;
+                    {{ Carbon\Carbon::parse($new->project_date)->format('l jS \\of F Y') }}
+                </p>
+                <p class="card-text">
+                    <strong>{{ $new->name }}</strong> <br />
+                    {{ substr(strip_tags($new->body), 10, 150) }}
+                    ...
+                </p>
+            </div>
+        </div>
+
+        @endforeach
+
         <br />
     </div>
     <div class="news">

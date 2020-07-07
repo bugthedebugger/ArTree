@@ -1,34 +1,20 @@
 <?php
 
-namespace App\Models;
+namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Project extends Model
+class NewsMedia extends Model
 {
     protected $fillable = [
         'name',
         'project_date',
         'location',
-        'event',
         'featured',
         'body',
-        'news',
         'hidden',
-        'category_id',
-        'projectyear_id',
         'uuid',
     ];
-
-    public function events()
-    {
-        return $this->hasOne('App\Models\Event', 'project_id');
-    }
-
-    public function new()
-    {
-        return $this->belongsTo('App\NewsMedia');
-    }
 
     public function gallery()
     {
@@ -40,8 +26,8 @@ class Project extends Model
         return $this->belongsTo('App\Models\Projectyear', 'projectyear_id', 'id');
     }
 
-    public function category()
+    public function projects()
     {
-        return $this->belongsTo('App\Models\Category');
+        return $this->hasMany('App\Models\Project');
     }
 }
