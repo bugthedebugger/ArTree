@@ -11,6 +11,7 @@ class NewsMedia extends Model
         'project_date',
         'location',
         'featured',
+        'project_id',
         'body',
         'hidden',
         'uuid',
@@ -26,8 +27,8 @@ class NewsMedia extends Model
         return $this->belongsTo('App\Models\Projectyear', 'projectyear_id', 'id');
     }
 
-    public function projects()
+    public function project()
     {
-        return $this->hasMany('App\Models\Project');
+        return $this->belongsTo('App\Models\Project');
     }
 }

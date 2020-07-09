@@ -8,8 +8,8 @@
 <script src="https://cdn.tiny.cloud/1/ki6agi5l9838uye4vcvrjeaujmdbx77zqqastubfn0xxifu8/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
 <script>
     tinymce.init({
-        selector:'textarea',
-        plugins: ["image","lists"],
+        selector: 'textarea',
+        plugins: ["image", "lists"],
         toolbar: 'undo redo | bold italic underline strikethrough | fontselect fontsizeselect formatselect | alignleft aligncenter alignright alignjustify | outdent indent |  numlist bullist | forecolor backcolor removeformat | pagebreak | charmap emoticons | fullscreen  preview save print | insertfile image media template link anchor codesample | ltr rtl',
         fullpage_default_font_family: "'Times New Roman', Georgia, Serif;",
     });
@@ -20,13 +20,13 @@
 <div class="container">
     <div class="card">
         <div class="card-header">
-            {{ $project->name }} 
+            {{ $project->name }}
         </div>
         <div class="card-body">
             @if (session('status'))
-                <div class="alert alert-success" role="alert">
-                    {{ session('status') }}
-                </div>
+            <div class="alert alert-success" role="alert">
+                {{ session('status') }}
+            </div>
             @endif
             <form action="{{ route('admin-projects-update', $project) }}" method="POST" enctype="multipart/form-data">
                 @csrf
@@ -37,9 +37,9 @@
                     <div class="col-sm-10">
                         <input type="text" class="form-control @error('name') is-invalid @enderror" value="{{ $project->name }}" name="name" id="projectName" placeholder="e.g. Awesome Project" required>
                         @error('name')
-                            <div class="invalid-feedback">
-                                {{ $message }}
-                            </div>
+                        <div class="invalid-feedback">
+                            {{ $message }}
+                        </div>
                         @enderror
                     </div>
                 </div>
@@ -50,9 +50,9 @@
                     <div class="col-sm-10">
                         <input type="date" class="form-control @error('date') is-invalid @enderror" name="date" id="date" value="{{ $project->project_date }}">
                         @error('date')
-                            <div class="invalid-feedback">
-                                {{ $message }}
-                            </div>
+                        <div class="invalid-feedback">
+                            {{ $message }}
+                        </div>
                         @enderror
                     </div>
                 </div>
@@ -63,27 +63,44 @@
                     <div class="col-sm-10">
                         <input type="text" class="form-control @error('location') is-invalid @enderror" name="location" id="location" placeholder="e.g. Kathmandu, Nepal" value="{{ $project->location }}">
                         @error('location')
-                            <div class="invalid-feedback">
-                                {{ $message }}
-                            </div>
+                        <div class="invalid-feedback">
+                            {{ $message }}
+                        </div>
                         @enderror
                     </div>
                 </div>
+
+                <div class="form-group row">
+                    <label for="isEvent" class="col-sm-2 col-form-label font-weight-bold">
+                        Choose boi
+                    </label>
+                    <div class="col-sm-10">
+                        <div class="form-check form-check-inline">
+                            <input name="news" onclick="toggleNews(this)" class="form-check-input" type="radio" id="Checkbox1" value="true" @if(!$project->new) checked @endif>
+                            <label class="form-check-label" for="Checkbox1">News&Media</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input name="news" onclick="toggleNews(this)" class="form-check-input" type="radio" id="Checkbox2" value="false" @if($project->new) checked @endif>
+                            <label class="form-check-label" for="Checkbox2">Project/Event</label>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="form-group row">
                     <label for="category" class="col-sm-2 col-form-label font-weight-bold">
                         Project Category
                     </label>
                     <div class="col-sm-10">
-                        <select id="category" name="category" class="form-control @error('category') is-invalid @enderror" required>
+                        <select id="category" name="category" class="form-control media-class @error('category') is-invalid @enderror" required disabled>
                             <option>Select Category</option>
-                            @foreach($categories as $category) 
-                                <option value="{{ $category->id }}" @if($category->id == $project->category_id) selected @endif>{{ $category->name }}</option>
+                            @foreach($categories as $category)
+                            <option value="{{ $category->id }}" @if($category->id == $project->category_id) selected @endif>{{ $category->name }}</option>
                             @endforeach
                         </select>
                         @error('category')
-                            <div class="invalid-feedback">
-                                {{ $message }}
-                            </div>
+                        <div class="invalid-feedback">
+                            {{ $message }}
+                        </div>
                         @enderror
                     </div>
                 </div>
@@ -92,16 +109,16 @@
                         Project Year
                     </label>
                     <div class="col-sm-10">
-                        <select id="project-year" name="project-year" class="form-control @error('project-year') is-invalid @enderror" required>
+                        <select id="project-year" name="project-year" class="media-class form-control @error('project-year') is-invalid @enderror" required disabled>
                             <option>Select Year</option>
-                            @foreach($years as $year) 
-                                <option value="{{ $year->id }}" @if($year->id == $project->projectyear_id) selected @endif>{{ $year->year }}</option>
+                            @foreach($years as $year)
+                            <option value="{{ $year->id }}" @if($year->id == $project->projectyear_id) selected @endif>{{ $year->year }}</option>
                             @endforeach
                         </select>
                         @error('project-year')
-                            <div class="invalid-feedback">
-                                {{ $message }}
-                            </div>
+                        <div class="invalid-feedback">
+                            {{ $message }}
+                        </div>
                         @enderror
                     </div>
                 </div>
@@ -111,11 +128,11 @@
                     </label>
                     <div class="col-sm-10">
                         <div class="form-check form-check-inline">
-                            <input name="event" onclick="toggleEvent(this)" class="form-check-input" type="radio" id="yesEvent" value="yes" @if($project->event) checked @endif>
+                            <input name="event" onclick="toggleEvent(this)" class="media-class form-check-input" type="radio" id="yesEvent" value="yes" @if($project->event) checked @endif disabled />
                             <label class="form-check-label" for="yesEvent">Yes</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input name="event" onclick="toggleEvent(this)" class="form-check-input" type="radio" id="noEvent" value="no" @if(!$project->event) checked @endif>
+                            <input name="event" onclick="toggleEvent(this)" class="media-class form-check-input" type="radio" id="noEvent" value="no" @if(!$project->event) checked @endif disabled />
                             <label class="form-check-label" for="noEvent">No</label>
                         </div>
                     </div>
@@ -126,14 +143,13 @@
                     </label>
                     <div class="input-group col-sm-10">
                         <div class="custom-file @error('event-photo') is-invalid @enderror">
-                            <input name="event-photo" onchange="eventImagechanged(this)" type="file" class="custom-file-input event-class" id="inputGroupFile03"
-                            aria-describedby="inputGroupFileAddon03" disabled>
+                            <input name="event-photo" onchange="eventImagechanged(this)" type="file" class="custom-file-input event-class" id="inputGroupFile03" aria-describedby="inputGroupFileAddon03" disabled>
                             <label id="eventFileLabel" class="custom-file-label" for="inputGroupFile03">Choose file</label>
                         </div>
                         @error('event-photo')
-                            <div class="invalid-feedback">
-                                {{ $message }}
-                            </div>
+                        <div class="invalid-feedback">
+                            {{ $message }}
+                        </div>
                         @enderror
                     </div>
                 </div>
@@ -144,9 +160,9 @@
                     <div class="col-sm-10">
                         <input type="text" value="{{ $project->events->location ?? '' }}" class="form-control event-class @error('event-location') is-invalid @enderror" name="event-location" id="event-location" placeholder="e.g. Kathmandu, Nepal" disabled>
                         @error('event-location')
-                            <div class="invalid-feedback">
-                                {{ $message }}
-                            </div>
+                        <div class="invalid-feedback">
+                            {{ $message }}
+                        </div>
                         @enderror
                     </div>
                 </div>
@@ -157,9 +173,9 @@
                     <div class="col-sm-10">
                         <input type="date" value="{{ $project->events->start_date ?? '' }}" class="form-control event-class @error('event-start-date') is-invalide @enderror" name="event-start-date" id="event-start-date" disabled>
                         @error('event-start-date')
-                            <div class="invalid-feedback">
-                                {{ $message }}
-                            </div>
+                        <div class="invalid-feedback">
+                            {{ $message }}
+                        </div>
                         @enderror
                     </div>
                 </div>
@@ -168,11 +184,11 @@
                         Event End Date
                     </label>
                     <div class="col-sm-10">
-                        <input type="date" value="{{ $project->events->end_date ?? '' }}"  class="form-control event-class @error('event-end-date') is-invalide @enderror" name="event-end-date" id="event-end-date" disabled>
+                        <input type="date" value="{{ $project->events->end_date ?? '' }}" class="form-control event-class @error('event-end-date') is-invalide @enderror" name="event-end-date" id="event-end-date" disabled>
                         @error('event-end-date')
-                            <div class="invalid-feedback">
-                                {{ $message }}
-                            </div>
+                        <div class="invalid-feedback">
+                            {{ $message }}
+                        </div>
                         @enderror
                     </div>
                 </div>
@@ -181,11 +197,11 @@
                         Event Start Time
                     </label>
                     <div class="col-sm-10">
-                        <input type="time" value="{{ $project->events->start_time ?? '' }}"  class="form-control event-class @error('event-start-time') is-invalide @enderror" name="event-start-time" id="event-start-time" placeholder="e.g. 12:00 pm" disabled>
+                        <input type="time" value="{{ $project->events->start_time ?? '' }}" class="form-control event-class @error('event-start-time') is-invalide @enderror" name="event-start-time" id="event-start-time" placeholder="e.g. 12:00 pm" disabled>
                         @error('event-start-time')
-                            <div class="invalid-feedback">
-                                {{ $message }}
-                            </div>
+                        <div class="invalid-feedback">
+                            {{ $message }}
+                        </div>
                         @enderror
                     </div>
                 </div>
@@ -194,11 +210,11 @@
                         Event End Time
                     </label>
                     <div class="col-sm-10">
-                        <input type="time" value="{{ $project->events->end_time ?? '' }}"  class="form-control event-class @error('event-end-time') is-invalid @enderror" name="event-end-time" id="event-end-time" placeholder="e.g. 12:00 pm" disabled>
+                        <input type="time" value="{{ $project->events->end_time ?? '' }}" class="form-control event-class @error('event-end-time') is-invalid @enderror" name="event-end-time" id="event-end-time" placeholder="e.g. 12:00 pm" disabled>
                         @error('event-end-time')
-                            <div class="invalid-feedback">
-                                {{ $message }}
-                            </div>
+                        <div class="invalid-feedback">
+                            {{ $message }}
+                        </div>
                         @enderror
                     </div>
                 </div>
@@ -208,14 +224,13 @@
                     </label>
                     <div class="input-group col-sm-10">
                         <div class="custom-file @error('featured') is-invalid @enderror">
-                            <input name="featured" onchange="changed(this)" type="file" class="custom-file-input" id="inputGroupFile01"
-                            aria-describedby="inputGroupFileAddon01">
+                            <input name="featured" onchange="changed(this)" type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
                             <label id="fileLabel" class="custom-file-label" for="inputGroupFile01">Choose file</label>
                         </div>
                         @error('featured')
-                            <div class="invalid-feedback">
-                                {{ $message }}
-                            </div>
+                        <div class="invalid-feedback">
+                            {{ $message }}
+                        </div>
                         @enderror
                     </div>
                 </div>
@@ -225,8 +240,7 @@
                     </label>
                     <div class="input-group col-sm-10">
                         <div class="custom-file">
-                            <input multiple name="gallery" onchange="uploadGalleryImages(this)" type="file" class="custom-file-input" id="inputGroupFile02"
-                            aria-describedby="inputGroupFileAddon02">
+                            <input multiple name="gallery" onchange="uploadGalleryImages(this)" type="file" class="custom-file-input" id="inputGroupFile02" aria-describedby="inputGroupFileAddon02">
                             <label id="fileLabel2" class="custom-file-label" for="inputGroupFile02">Choose file</label>
                         </div>
                     </div>
@@ -259,7 +273,6 @@
 
 @section('scripts')
 <script>
-
     function changed(e) {
         var fileName = document.getElementById("inputGroupFile01").files[0].name;
         var nextSibling = document.getElementById("fileLabel");
@@ -280,9 +293,23 @@
         else
             enable = false;
         var elements = document.getElementsByClassName("event-class");
-        for (i=0; i<elements.length; i++) {
+        for (i = 0; i < elements.length; i++) {
             elements[i].disabled = !enable;
         }
+    }
+
+    function toggleNews(f) {
+        var enable;
+        if (f.value == "true")
+            enable = false;
+        else
+            enable = true;
+        var elements = document.getElementsByClassName("media-class");
+        for (i = 0; i < elements.length; i++) {
+            elements[i].disabled = !enable;
+        }
+
+
     }
 
 
@@ -312,8 +339,8 @@
         </div>';
         var files = e.files;
         var formData = new FormData();
-        
-        for (i=0; i<files.length; i++) {
+
+        for (i = 0; i < files.length; i++) {
             formData.append('photos[]', files[i]);
         }
 

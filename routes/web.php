@@ -29,7 +29,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     Route::post('/categories/store', 'Admin\CategoriesController@store')->name('admin-categories-store');
     Route::get('/categories/edit/{category}', 'Admin\CategoriesController@edit')->name('admin-categories-edit');
     Route::post('/categories/update/{category}', 'Admin\CategoriesController@update')->name('admin-categories-update');
-    
+
     Route::get('/project-years', 'Admin\ProjectYearsController@index')->name('admin-project-years');
     Route::get('/project-years/create', 'Admin\ProjectYearsController@create')->name('admin-project-years-create');
     Route::post('/project-years/store', 'Admin\ProjectYearsController@store')->name('admin-project-years-store');
@@ -60,5 +60,5 @@ Route::get('/about', 'AboutUsController@index')->name('about-us');
 Route::get('/about/bio/{member}', 'BioController@index')->name('bio');
 Route::get('/projects/{year}', 'ProjectsController@index')->name('projects-filtered');
 Route::get('/projects/{year}/{project}', 'ProjectsController@read')->name('projects-read');
+Route::get('/projects/{new}', 'ProjectsController@new')->name('new-read');
 Route::get('/contact-us', 'ContactusController@index')->name('contact-us');
-

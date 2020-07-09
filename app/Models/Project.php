@@ -25,9 +25,9 @@ class Project extends Model
         return $this->hasOne('App\Models\Event', 'project_id');
     }
 
-    public function new()
+    public function news()
     {
-        return $this->belongsTo('App\NewsMedia');
+        return $this->hasOne('App\NewsMedia', 'project_id');
     }
 
     public function gallery()

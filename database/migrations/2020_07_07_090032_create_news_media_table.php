@@ -18,11 +18,12 @@ class CreateNewsMediaTable extends Migration
             $table->bigIncrements('id');
             $table->string('name');
             $table->date('project_date')->nullable();
+            $table->unsignedInteger('project_id')->index();
             $table->string('location')->nullable();
-            $table->string('featured');
+            $table->string('featured')->nullable();
             $table->longText('body');
             $table->boolean('hidden')->default(false);
-            $table->string('uuid');
+            $table->string('uuid')->nullable();
             $table->timestamps();
         });
     }

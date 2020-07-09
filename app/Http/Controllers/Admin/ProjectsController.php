@@ -12,6 +12,7 @@ use App\Models\Projectyear;
 use App\Models\Event;
 use Storage;
 use Session;
+use App\NewsMedia;
 
 class ProjectsController extends Controller
 {
@@ -103,6 +104,20 @@ class ProjectsController extends Controller
                     'entry_fee' => $event_entry_fee,
                 ]);
             }
+            if ($news) {
+                $news_photo_file = $featured->store($upload_path);
+                $news_photo_path = str_replace('public/uploads', 'uploads', Storage::url($news_photo_file));
+
+                $project->news()->create([
+                    'featured' => $news_photo_path,
+                    'name' => $name,
+                    'project_date' => $project_date,
+                    'location' => $location,
+                    'body' => $blog,
+                    'hidden' => false,
+                    'uuid' => $uuid,
+                ]);
+            }
             \DB::commit();
             Session::flash('success', 'Project Saved!');
         } catch (\Exception $e) {
@@ -132,9 +147,10 @@ class ProjectsController extends Controller
             'name' => 'required',
             'date' => 'date|nullable',
             'location' => 'string|nullable',
-            'category' => 'required',
-            'project-year' => 'required',
-            'event' => 'required',
+            'category' => 'nullable',
+            'project-year' => 'nullable',
+            'news' => 'required',
+            'event' => 'nullable',
             'event-photo' => 'nullable|mimes:jpeg,jpg,png,gif,svg|max:10000',
             'event-location' => 'nullable',
             'event-start-date' => 'nullable',
@@ -151,6 +167,7 @@ class ProjectsController extends Controller
         $location = $request->location;
         $category = $request->category;
         $project_year = $request['project-year'];
+        $news = $request->news == 'true' ? true : false;
         $event = $request->event == 'yes' ? true : false;
         $event_location = $request['event-location'];
         $event_start_date = $request['event-start-date'];
@@ -175,6 +192,7 @@ class ProjectsController extends Controller
                 'name' => $name,
                 'project_date' => $project_date,
                 'location' => $location,
+                'news' => $news,
                 'event' => $event,
                 'featured' => $file_path,
                 'body' => $blog,
@@ -215,6 +233,37 @@ class ProjectsController extends Controller
                     ]);
                 }
             }
+
+            if ($news) {
+                $new = $project->news;
+                if ($new == null) {
+                    $new_photo_file = $featured->store($upload_path);
+                    $new_photo_path = str_replace('public/uploads', 'uploads', Storage::url($new_photo_file));
+                    NewsMedia::create([
+                        'featured' => $new_photo_path,
+                        'name' => $name,
+                        'project_id' => $project->id,
+                        'location' => $location,
+                        'body' => $blog,
+                        'hidden' => false,
+                    ]);
+                } else {
+                    if ($featured != null) {
+                        $new_photo_file = $featured->store($upload_path);
+                        $new_photo_path = str_replace('public/uploads', 'uploads', Storage::url($new_photo_file));
+                    } else {
+                        $new_photo_path = $project->featured;
+                    }
+                    $project->news()->update([
+                        'featured' => $new_photo_path,
+                        'name' => $name,
+                        'location' => $location,
+                        'body' => $blog,
+                        'hidden' => false,
+                    ]);
+                }
+            }
+
             $project->save();
             \DB::commit();
             Session::flash('success', 'Project Saved!');

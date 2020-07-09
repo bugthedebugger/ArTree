@@ -36,36 +36,27 @@
         </ul>
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img
-                    src="{{ $featuredProjectOne->featured ?? asset('images/hero.png') }}"
-                    alt="Featured Project"
-                />
+                <img src="{{ $featuredProjectOne->featured ?? asset('images/hero.png') }}" alt="Featured Project" />
                 <div class="overlay"></div>
                 <div class="carousel-caption">
-                    <h1>{{ $featuredProjectOne->name}}</h1>
-                    <p>{{ $featuredProjectOne->project_date }}</p>
+                    <h1>{{ $featuredProjectOne->name ?? 'Recent Project'}}</h1>
+                    <p>{{ $featuredProjectOne->project_date ?? '2020-02-02' }}</p>
                 </div>
             </div>
             <div class="carousel-item">
-                <img
-                    src="{{ $featuredProjectTwo->featured ?? asset('images/hero.png') }}"
-                    alt="Featured Project"
-                />
+                <img src="{{ $featuredProjectTwo->featured ?? asset('images/hero.png') }}" alt="Featured Project" />
                 <div class="overlay"></div>
                 <div class="carousel-caption">
-                    <h1>{{ $featuredProjectTwo->name}}</h1>
-                    <p>{{ $featuredProjectTwo->project_date }}</p>
+                    <h1>{{ $featuredProjectTwo->name ?? 'Recent Project'}}</h1>
+                    <p>{{ $featuredProjectTwo->project_date ?? '2020-02-02'}}</p>
                 </div>
             </div>
             <div class="carousel-item">
-                <img
-                    src="{{ $featuredProjectThree->featured ?? asset('images/hero.png') }}"
-                    alt="Featured Project"
-                />
+                <img src="{{ $featuredProjectThree->featured ?? asset('images/hero.png') }}" alt="Featured Project" />
                 <div class="overlay"></div>
                 <div class="carousel-caption">
-                    <h1>{{ $featuredProjectThree->name}}</h1>
-                    <p>{{ $featuredProjectThree->project_date }}</p>
+                    <h1>{{ $featuredProjectThree->name ?? 'Recent Project'}}</h1>
+                    <p>{{ $featuredProjectThree->project_date ?? '2020-02-02'}}</p>
                 </div>
             </div>
         </div>
@@ -89,10 +80,7 @@
                 <div class="card" style="height: 100%;">
                     <div class="row h-100">
                         <div class="col-md-6 my-auto">
-                            <img
-                                src="{{ $latestEvent->events->photo ?? asset('images/feat.jpeg') }}"
-                                class="eventImg"
-                            />
+                            <img src="{{ $latestEvent->events->photo ?? asset('images/feat.jpeg') }}" class="eventImg" />
                         </div>
                         <div class="col-md-6 my-auto">
                             <div style="padding: 40px;">
@@ -152,15 +140,8 @@
             @endif @foreach($projects as $project)
             <div class="col-md-4">
                 <div class="card" style="height: 100%;">
-                    <a
-                        href="{{ route('projects-read', ['year' => $project->projectYear->year, 'project' => $project]) }}"
-                        class="cardLink"
-                    >
-                        <img
-                            class="card-img-top cardImg"
-                            src="{{ $project->featured ?? asset('images/eye.png') }}"
-                            alt="Card image"
-                        />
+                    <a href="{{ route('projects-read', ['year' => $project->projectYear->year, 'project' => $project]) }}" class="cardLink">
+                        <img class="card-img-top cardImg" src="{{ $project->featured ?? asset('images/eye.png') }}" alt="Card image" />
 
                         <div class="card-body">
                             <p class="card-title">
@@ -169,7 +150,7 @@
                             </p>
                             <p class="card-text">
                                 <strong>{{ $project->name }}</strong> <br />
-                                {{ substr(strip_tags($project->body), 10, 150) }}
+                                {{ substr(strip_tags($project->body), 10, 100) }}
                                 ...
                             </p>
                         </div>
@@ -188,11 +169,7 @@
             @foreach($news as $new)
             <div class="col-md-4">
                 <div class="card" style="height: 100%;">
-                    <img
-                        class="card-img-top cardImg"
-                        src="{{ $new->featured ?? asset('images/eye.png') }}"
-                        alt="Card image"
-                    />
+                    <img class="card-img-top cardImg" src="{{ $new->featured ?? asset('images/eye.png') }}" alt="Card image" />
                     <div class="card-body">
                         <p class="card-title">
                             <i class="fal fa-calendar"></i>&nbsp;
@@ -200,14 +177,10 @@
                         </p>
                         <p class="card-text">
                             <strong>{{ $new->name }}</strong> <br />
-                            {{ substr(strip_tags($new->body), 10, 150) }}
+                            {{ substr(strip_tags($new->body), 10, 100) }}
                             ...
                         </p>
-                        <a
-                            href="{{ route('projects-read', ['year' => $project->projectYear->year, 'project' => $project]) }}"
-                            class="btn btn-artee"
-                            >Read More</a
-                        >
+                        <a href="{{ route('new-read', ['new' => $new]) }}" class="btn btn-artee">Read More</a>
                     </div>
                 </div>
             </div>
@@ -232,14 +205,7 @@
                 ><br /><br /> -->
                 <!-- SnapWidget -->
                 <script src="https://snapwidget.com/js/snapwidget.js"></script>
-                <iframe
-                    src="https://snapwidget.com/embed/776121"
-                    class="snapwidget-widget"
-                    allowtransparency="true"
-                    frameborder="0"
-                    scrolling="no"
-                    style="border: none; overflow: hidden; width: 100%;"
-                ></iframe>
+                <iframe src="https://snapwidget.com/embed/776121" class="snapwidget-widget" allowtransparency="true" frameborder="0" scrolling="no" style="border: none; overflow: hidden; width: 100%;"></iframe>
                 <br />
             </div>
             <div class="col-md-6">
@@ -251,16 +217,7 @@
                     >Like</a
                 ><br /><br /> -->
                 <div class="text-center">
-                    <iframe
-                        src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FArtree-Nepal-295759690592034%2F&tabs=timeline&width=340&height=540&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId=138713336895364"
-                        width="340"
-                        height="540"
-                        style="border: none; overflow: hidden;"
-                        scrolling="no"
-                        frameborder="0"
-                        allowTransparency="true"
-                        allow="encrypted-media"
-                    ></iframe>
+                    <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FArtree-Nepal-295759690592034%2F&tabs=timeline&width=340&height=540&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId=138713336895364" width="340" height="540" style="border: none; overflow: hidden;" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
                 </div>
                 <br />
             </div>
