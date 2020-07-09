@@ -26,6 +26,7 @@ class ProjectsController extends Controller
 
     public function new(NewsMedia $new)
     {
+
         return view('projects.new')
             ->with('new', $new);
     }
