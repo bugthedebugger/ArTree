@@ -17,25 +17,30 @@
         <!-- Carousel -->
         <center>
             <div>
-                <div
-                    id="demo"
-                    class="carousel slide blogCaro"
-                    data-ride="carousel"
-                >
+                <div id="demo" class="carousel slide" data-ride="carousel">
                     <!-- The slideshow -->
                     <div class="carousel-inner">
                         <div class="carousel-item active">
                             <img
                                 src="{{ $project->featured ?? asset('images/project.png') }}"
-                                class="d-block w-100"
-                                style="object-fit: cover;"
+                                class="w-100 img-fluid"
+                                style="
+                                    object-fit: contain;
+                                    height: 600px;
+                                    background-color: #ed1848;
+                                "
                             />
                         </div>
                         @foreach($project->gallery as $gallery)
                         <div class="carousel-item">
                             <img
                                 src="{{ $gallery->path }}"
-                                class="d-block w-100 img-fluid"
+                                class="w-100 img-fluid"
+                                style="
+                                    object-fit: contain;
+                                    height: 600px;
+                                    background-color: #ed1848;
+                                "
                             />
                         </div>
                         @endforeach
@@ -134,7 +139,7 @@
         <hr />
         <br />
         <div style="max-width: 720px; margin-right: auto; margin-left: auto;">
-            <h6 style="font-family: Roboto; font-weight: bold;">
+            <h6>
                 Share this Article
             </h6>
             <div>

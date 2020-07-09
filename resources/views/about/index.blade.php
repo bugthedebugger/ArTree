@@ -10,7 +10,7 @@ About Us
         <div class="row">
             <div class="col-md-8">
                 <div class="aboutHead">
-                    <h1>About us</h1>
+                    <h1 style="color: #fff;">About us</h1>
                 </div>
             </div>
             <div class="col-md-4">

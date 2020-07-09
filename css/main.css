@@ -1,6 +1,5 @@
 /* Fonts */
 @import url("https://fonts.googleapis.com/css2?family=Bungee+Inline&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Bungee+Inline&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
 /* Variables */
 html {
   height: 100%;
@@ -24,36 +23,26 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: Merriweather;
-  color: #333;
+  font-family: "Bungee Inline" !important;
+  color: #ed1848;
 }
 
 h1 {
   font-size: 40px;
-  font-weight: bold;
-}
-
-h5 {
-  font-weight: 600;
 }
 
 h4 {
-  font-weight: bold;
   font-size: 20px;
   color: #3a3a3a;
 }
 
-h6 {
-  font-weight: bold;
-}
-
 a {
   text-decoration: none;
-  color: #da2d2d;
+  color: #ed1848;
 }
 
 a:hover {
-  color: #b42525;
+  color: #d4123e;
 }
 
 [class*="col-"] {
@@ -202,12 +191,12 @@ a:hover {
 
 .cardLink:hover {
   text-decoration: none;
-  color: #da2d2d;
+  color: #ed1848;
 }
 
 /* Buttons */
 .btn-artee {
-  background: #da2d2d;
+  background: #ed1848;
   color: #ffffff;
   padding: 5px 25px;
   border-radius: 0px;
@@ -218,7 +207,7 @@ a:hover {
 
 .btn-artee:hover {
   color: #ffffff;
-  background: #b42525;
+  background: #d4123e;
 }
 
 .grey {
@@ -228,7 +217,7 @@ a:hover {
 }
 
 .redCard {
-  background: #da2d2d;
+  background: #ed1848;
   color: #ffffff;
   padding: 100px 60px;
 }
@@ -261,7 +250,7 @@ a:hover {
 
 /* About Page */
 .aboutHead {
-  background: #da2d2d;
+  background: #ed1848;
   color: #fff;
   padding: 60px 60px;
 }
@@ -287,7 +276,7 @@ a:hover {
 }
 
 .bioLink {
-  color: #da2d2d;
+  color: #ed1848;
   font-weight: bold;
   font-size: 12px;
 }
@@ -320,7 +309,7 @@ a:hover {
 }
 
 .blogBookmark {
-  color: #da2d2d;
+  color: #ed1848;
   font-size: 20px;
   position: fixed;
 }
@@ -335,7 +324,7 @@ a:hover {
 }
 
 .arteeCaro {
-  background: #da2d2d;
+  background: #ed1848;
 }
 
 .img-fluid {
@@ -370,7 +359,7 @@ a:hover {
 
 .cardImg {
   width: 100%;
-  height: 200px;
+  height: 280px;
   -o-object-fit: cover;
      object-fit: cover;
 }

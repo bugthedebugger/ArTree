@@ -7,9 +7,12 @@
             integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
         <!-- Font Awesome 5.11-->
         <link rel="stylesheet" href="{{ asset('css/all.min.css') }}">
+        
         <!-- Our Custom CSS-->
+
         <link rel="stylesheet" href="{{ asset('css/main.css') }}">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
         @yield('head')
     </head>
 

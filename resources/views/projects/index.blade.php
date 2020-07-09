@@ -60,6 +60,7 @@
                     </div>
                 </a>
             </div>
+            <br />
             @endforeach
         </div>
         @endif
