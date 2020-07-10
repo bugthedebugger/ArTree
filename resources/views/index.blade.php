@@ -39,7 +39,9 @@
                 <img src="{{ $featuredProjectOne->featured ?? asset('images/hero.png') }}" alt="Featured Project" />
                 <div class="overlay"></div>
                 <div class="carousel-caption">
-                    <h1>{{ $featuredProjectOne->name ?? 'Recent Project'}}</h1>
+                    <a href="{{ route('projects-read', ['year' => $featuredProjectOne->projectYear->year, 'project' => $featuredProjectOne]) }}">
+                        <h1>{{ $featuredProjectOne->name ?? 'Recent Project'}}</h1>
+                    </a>
                     <p>{{ $featuredProjectOne->project_date ?? '2020-02-02' }}</p>
                 </div>
             </div>
@@ -47,15 +49,20 @@
                 <img src="{{ $featuredProjectTwo->featured ?? asset('images/hero.png') }}" alt="Featured Project" />
                 <div class="overlay"></div>
                 <div class="carousel-caption">
-                    <h1>{{ $featuredProjectTwo->name ?? 'Recent Project'}}</h1>
+                    <a href="{{ route('projects-read', ['year' => $featuredProjectTwo->projectYear->year, 'project' => $featuredProjectTwo]) }}">
+                        <h1>{{ $featuredProjectTwo->name ?? 'Recent Project'}}</h1>
+                    </a>
                     <p>{{ $featuredProjectTwo->project_date ?? '2020-02-02'}}</p>
+
                 </div>
             </div>
             <div class="carousel-item">
                 <img src="{{ $featuredProjectThree->featured ?? asset('images/hero.png') }}" alt="Featured Project" />
                 <div class="overlay"></div>
                 <div class="carousel-caption">
-                    <h1>{{ $featuredProjectThree->name ?? 'Recent Project'}}</h1>
+                    <a href="{{ route('projects-read', ['year' => $featuredProjectThree->projectYear->year, 'project' => $featuredProjectThree]) }}">
+                        <h1>{{ $featuredProjectThree->name ?? 'Recent Project'}}</h1>
+                    </a>
                     <p>{{ $featuredProjectThree->project_date ?? '2020-02-02'}}</p>
                 </div>
             </div>
@@ -169,6 +176,7 @@
             @foreach($news as $new)
             <div class="col-md-4">
                 <div class="card" style="height: 100%;">
+                <a href="{{ route('new-read', ['new' => $new]) }}" class="cardLink">
                     <img class="card-img-top cardImg" src="{{ $new->featured ?? asset('images/eye.png') }}" alt="Card image" />
                     <div class="card-body">
                         <p class="card-title">
@@ -180,7 +188,7 @@
                             {{ substr(strip_tags($new->body), 10, 100) }}
                             ...
                         </p>
-                        <a href="{{ route('new-read', ['new' => $new]) }}" class="btn btn-artee">Read More</a>
+                        </a>
                     </div>
                 </div>
             </div>

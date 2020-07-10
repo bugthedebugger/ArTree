@@ -25,7 +25,7 @@
                                     background-color: #ed1848;
                                 " />
                         </div>
-                        <!-- @foreach($new->gallery as $gallery)
+                        @foreach($new->gallery as $gallery)
                         <div class="carousel-item">
                             <img src="{{ $gallery->path }}" class="w-100 img-fluid" style="
                                     object-fit: contain;
@@ -33,7 +33,7 @@
                                     background-color: #ed1848;
                                 " />
                         </div>
-                        @endforeach -->
+                        @endforeach
                     </div>
 
                     <!-- Left and right controls -->

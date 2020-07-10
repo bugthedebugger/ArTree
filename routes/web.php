@@ -60,5 +60,5 @@ Route::get('/about', 'AboutUsController@index')->name('about-us');
 Route::get('/about/bio/{member}', 'BioController@index')->name('bio');
 Route::get('/projects/{year}', 'ProjectsController@index')->name('projects-filtered');
 Route::get('/projects/{year}/{project}', 'ProjectsController@read')->name('projects-read');
-Route::get('/projector/{new}', 'ProjectsController@new')->name('new-read');
+Route::get('/project/newsmedia/{new}', 'ProjectsController@new')->name('new-read');
 Route::get('/contact-us', 'ContactusController@index')->name('contact-us');

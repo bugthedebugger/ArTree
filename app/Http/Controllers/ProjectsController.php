@@ -24,9 +24,9 @@ class ProjectsController extends Controller
             ->with('project', $project);
     }
 
-    public function new(NewsMedia $new)
+    public function new($new)
     {
-
+        $new = Project::where('id', $new)->first();
         return view('projects.new')
             ->with('new', $new);
     }
