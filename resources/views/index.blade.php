@@ -39,9 +39,13 @@
                 <img src="{{ $featuredProjectOne->featured ?? asset('images/hero.png') }}" alt="Featured Project" />
                 <div class="overlay"></div>
                 <div class="carousel-caption">
+                    @if($featuredProjectOne)
                     <a href="{{ route('projects-read', ['year' => $featuredProjectOne->projectYear->year, 'project' => $featuredProjectOne]) }}">
                         <h1>{{ $featuredProjectOne->name ?? 'Recent Project'}}</h1>
                     </a>
+                    @else
+                    <h1>{{ $featuredProjectOne->name ?? 'Recent Project'}}</h1>
+                    @endif
                     <p>{{ $featuredProjectOne->project_date ?? '2020-02-02' }}</p>
                 </div>
             </div>
@@ -49,9 +53,13 @@
                 <img src="{{ $featuredProjectTwo->featured ?? asset('images/hero.png') }}" alt="Featured Project" />
                 <div class="overlay"></div>
                 <div class="carousel-caption">
+                    @if($featuredProjectTwo)
                     <a href="{{ route('projects-read', ['year' => $featuredProjectTwo->projectYear->year, 'project' => $featuredProjectTwo]) }}">
                         <h1>{{ $featuredProjectTwo->name ?? 'Recent Project'}}</h1>
                     </a>
+                    @else
+                    <h1>{{ $featuredProjectTwo->name ?? 'Recent Project'}}</h1>
+                    @endif
                     <p>{{ $featuredProjectTwo->project_date ?? '2020-02-02'}}</p>
 
                 </div>
@@ -60,9 +68,13 @@
                 <img src="{{ $featuredProjectThree->featured ?? asset('images/hero.png') }}" alt="Featured Project" />
                 <div class="overlay"></div>
                 <div class="carousel-caption">
+                    @if($featuredProjectThree)
                     <a href="{{ route('projects-read', ['year' => $featuredProjectThree->projectYear->year, 'project' => $featuredProjectThree]) }}">
                         <h1>{{ $featuredProjectThree->name ?? 'Recent Project'}}</h1>
                     </a>
+                    @else
+                    <h1>{{ $featuredProjectThree->name ?? 'Recent Project'}}</h1>
+                    @endif
                     <p>{{ $featuredProjectThree->project_date ?? '2020-02-02'}}</p>
                 </div>
             </div>
@@ -176,61 +188,61 @@
             @foreach($news as $new)
             <div class="col-md-4">
                 <div class="card" style="height: 100%;">
-                <a href="{{ route('new-read', ['new' => $new]) }}" class="cardLink">
-                    <img class="card-img-top cardImg" src="{{ $new->featured ?? asset('images/eye.png') }}" alt="Card image" />
-                    <div class="card-body">
-                        <p class="card-title">
-                            <i class="fal fa-calendar"></i>&nbsp;
-                            {{ Carbon\Carbon::parse($new->project_date)->format('l jS \\of F Y') }}
-                        </p>
-                        <p class="card-text">
-                            <strong>{{ $new->name }}</strong> <br />
-                            {{ substr(strip_tags($new->body), 10, 100) }}
-                            ...
-                        </p>
-                        </a>
-                    </div>
+                    <a href="{{ route('new-read', ['new' => $new]) }}" class="cardLink">
+                        <img class="card-img-top cardImg" src="{{ $new->featured ?? asset('images/eye.png') }}" alt="Card image" />
+                        <div class="card-body">
+                            <p class="card-title">
+                                <i class="fal fa-calendar"></i>&nbsp;
+                                {{ Carbon\Carbon::parse($new->project_date)->format('l jS \\of F Y') }}
+                            </p>
+                            <p class="card-text">
+                                <strong>{{ $new->name }}</strong> <br />
+                                {{ substr(strip_tags($new->body), 10, 100) }}
+                                ...
+                            </p>
+                    </a>
                 </div>
             </div>
-
-            @endforeach
         </div>
 
-        <br />
+        @endforeach
     </div>
 
-    <div class="news">
-        <h1>Social Feeds</h1>
-        <br />
-        <div class="row">
-            <div class="col-md-6">
-                <!-- <h5 style="float: left;">Instagram</h5> -->
-                <!-- <a
+    <br />
+</div>
+
+<div class="news">
+    <h1>Social Feeds</h1>
+    <br />
+    <div class="row">
+        <div class="col-md-6">
+            <!-- <h5 style="float: left;">Instagram</h5> -->
+            <!-- <a
                     class="btn btn-artee"
                     href="{{ $settings->instagram ?? '#' }}"
                     style="float: right;"
                     >Follow</a
                 ><br /><br /> -->
-                <!-- SnapWidget -->
-                <script src="https://snapwidget.com/js/snapwidget.js"></script>
-                <iframe src="https://snapwidget.com/embed/776121" class="snapwidget-widget" allowtransparency="true" frameborder="0" scrolling="no" style="border: none; overflow: hidden; width: 100%;"></iframe>
-                <br />
-            </div>
-            <div class="col-md-6">
-                <!-- <h5 style="float: left;">Facebook</h5> -->
-                <!-- <a
+            <!-- SnapWidget -->
+            <script src="https://snapwidget.com/js/snapwidget.js"></script>
+            <iframe src="https://snapwidget.com/embed/776121" class="snapwidget-widget" allowtransparency="true" frameborder="0" scrolling="no" style="border: none; overflow: hidden; width: 100%;"></iframe>
+            <br />
+        </div>
+        <div class="col-md-6">
+            <!-- <h5 style="float: left;">Facebook</h5> -->
+            <!-- <a
                     class="btn btn-artee"
                     href="{{ $settings->facebook ?? '#' }}"
                     style="float: right;"
                     >Like</a
                 ><br /><br /> -->
-                <div class="text-center">
-                    <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FArtree-Nepal-295759690592034%2F&tabs=timeline&width=340&height=540&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId=138713336895364" width="340" height="540" style="border: none; overflow: hidden;" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
-                </div>
-                <br />
+            <div class="text-center">
+                <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FArtree-Nepal-295759690592034%2F&tabs=timeline&width=340&height=540&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId=138713336895364" width="340" height="540" style="border: none; overflow: hidden;" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
             </div>
+            <br />
         </div>
     </div>
-    @include('layouts.partials.contact-us')
+</div>
+@include('layouts.partials.contact-us')
 </div>
 @endsection
