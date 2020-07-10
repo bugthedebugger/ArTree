@@ -69,18 +69,20 @@ New Project
                         @enderror
                     </div>
                 </div>
+                
                 <div class="form-group row">
                     <label for="isEvent" class="col-sm-2 col-form-label font-weight-bold">
                         Choose boi
                     </label>
                     <div class="col-sm-10">
+
                         <div class="form-check form-check-inline">
-                            <input name="news" onclick="toggleNews(this)" class="form-check-input" type="radio" id="Checkbox1" value="true" checked>
-                            <label class="form-check-label" for="Checkbox1">News&Media</label>
+                            <input name="news" onclick="toggleNews(this)" class="form-check-input" type="radio" id="Checkbox2" value="false" checked>
+                            <label class="form-check-label" for="Checkbox2">Project/Event</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input name="news" onclick="toggleNews(this)" class="form-check-input" type="radio" id="Checkbox2" value="false">
-                            <label class="form-check-label" for="Checkbox2">Project/Event</label>
+                            <input name="news" onclick="toggleNews(this)" class="form-check-input" type="radio" id="Checkbox1" value="true">
+                            <label class="form-check-label" for="Checkbox1">News&Media</label>
                         </div>
                     </div>
                 </div>
@@ -90,7 +92,7 @@ New Project
                         Project Category
                     </label>
                     <div class="col-sm-10">
-                        <select id="category" name="category" class="form-control media-class @error('category') is-invalid @enderror" required disabled>
+                        <select id="category" name="category" class="form-control media-class @error('category') is-invalid @enderror" required>
                             <option selected>Select Category</option>
                             @foreach($categories as $category)
                             <option value="{{ $category->id }}">{{ $category->name }}</option>
@@ -108,7 +110,7 @@ New Project
                         Project Year
                     </label>
                     <div class="col-sm-10">
-                        <select id="project-year" name="project-year" class="form-control media-class @error('project-year') is-invalid @enderror" required disabled>
+                        <select id="project-year" name="project-year" class="form-control media-class @error('project-year') is-invalid @enderror" required>
                             <option selected>Select Year</option>
                             @foreach($years as $year)
                             <option value="{{ $year->id }}">{{ $year->year }}</option>
@@ -129,11 +131,11 @@ New Project
                     </label>
                     <div class="col-sm-10">
                         <div class="form-check form-check-inline">
-                            <input name="event" onclick="toggleEvent(this)" class="media-class form-check-input" type="radio" id="inlineCheckbox1" value="yes" disabled>
+                            <input name="event" onclick="toggleEvent(this)" class="media-class form-check-input" type="radio" id="inlineCheckbox1" value="yes">
                             <label class="form-check-label" for="inlineCheckbox1">Yes</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input name="event" onclick="toggleEvent(this)" class="media-class form-check-input" type="radio" id="inlineCheckbox2" value="no" checked disabled>
+                            <input name="event" onclick="toggleEvent(this)" class="media-class form-check-input" type="radio" id="inlineCheckbox2" value="no" checked>
                             <label class="form-check-label" for="inlineCheckbox2">No</label>
                         </div>
                     </div>
@@ -301,7 +303,7 @@ New Project
     }
 
     function toggleNews(f) {
-        var enable;
+
         if (f.value == "true")
             enable = false;
         else
@@ -311,7 +313,16 @@ New Project
             elements[i].disabled = !enable;
         }
 
+        var enabled;
+        if (f.value == 'true') {
 
+            enabled = false;
+            var medias = document.getElementsByClassName('event-class');
+
+            for (i = 0; i < medias.length; i++) {
+                medias[i].disabled = !enabled
+            }
+        }
     }
 
 
