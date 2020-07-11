@@ -27,8 +27,8 @@ class AddNullableToProjectTable extends Migration
     public function down()
     {
         Schema::table('projects', function (Blueprint $table) {
-            $table->unsignedInteger('category_id');
-            $table->unsignedInteger('projectyear_id');
+            $table->unsignedInteger('category_id')->change();
+            $table->unsignedInteger('projectyear_id')->change();
         });
     }
 }
