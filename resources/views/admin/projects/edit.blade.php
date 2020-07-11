@@ -77,11 +77,11 @@
                     <div class="col-sm-10">
 
                         <div class="form-check form-check-inline">
-                            <input name="news" onclick="toggleNews(this)" class="form-check-input" type="radio" id="Checkbox2" value="false" checked>
+                            <input name="news" onclick="toggleNews(this)" class="form-check-input" type="radio" id="Checkbox2" value="false" @if(!$project->news) checked @endif>
                             <label class="form-check-label" for="Checkbox2">Project/Event</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input name="news" onclick="toggleNews(this)" class="form-check-input" type="radio" id="Checkbox1" value="true">
+                            <input name="news" onclick="toggleNews(this)" class="form-check-input" type="radio" id="Checkbox1" value="true" @if($project->news) checked @endif>
                             <label class="form-check-label" for="Checkbox1">News&Media</label>
                         </div>
                     </div>
@@ -92,7 +92,7 @@
                         Project Category
                     </label>
                     <div class="col-sm-10">
-                        <select id="category" name="category" class="form-control media-class @error('category') is-invalid @enderror" required>
+                        <select id="category" name="category" class="form-control media-class @error('category') is-invalid @enderror" required @if($project->news) disabled @endif>
                             <option>Select Category</option>
                             @foreach($categories as $category)
                             <option value="{{ $category->id }}" @if($category->id == $project->category_id) selected @endif>{{ $category->name }}</option>
@@ -110,7 +110,7 @@
                         Project Year
                     </label>
                     <div class="col-sm-10">
-                        <select id="project-year" name="project-year" class="media-class form-control @error('project-year') is-invalid @enderror" required>
+                        <select id="project-year" name="project-year" class="media-class form-control @error('project-year') is-invalid @enderror" required @if($project->news) disabled @endif>
                             <option>Select Year</option>
                             @foreach($years as $year)
                             <option value="{{ $year->id }}" @if($year->id == $project->projectyear_id) selected @endif>{{ $year->year }}</option>

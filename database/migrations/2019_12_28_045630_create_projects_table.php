@@ -20,13 +20,12 @@ class CreateProjectsTable extends Migration
             $table->date('project_date')->nullable();
             $table->string('location')->nullable();
             $table->boolean('event')->default(false);
-            $table->boolean('news')->default(false);
             $table->string('featured');
             $table->longText('body');
             $table->boolean('hidden')->default(false);
             $table->string('uuid');
-            $table->unsignedInteger('category_id')->nullable();
-            $table->unsignedInteger('projectyear_id')->nullable();
+            $table->unsignedInteger('category_id');
+            $table->unsignedInteger('projectyear_id');
             $table->timestamps();
         });
     }

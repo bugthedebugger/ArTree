@@ -133,12 +133,14 @@ class ProjectsController extends Controller
         $galleryID = $project->uuid;
         $categories = Category::orderBy('name')->get();
         $years = Projectyear::orderBy('year')->get();
+        $news = NewsMedia::all();
 
         return view('admin.projects.edit')
             ->with('project', $project)
             ->with('galleryID', $galleryID)
             ->with('categories', $categories)
-            ->with('years', $years);
+            ->with('years', $years)
+            ->with('news', $news);
     }
 
     public function update(Request $request, Project $project)
