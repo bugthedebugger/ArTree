@@ -25,8 +25,8 @@
                                 src="{{ $project->featured ?? asset('images/project.png') }}"
                                 class="w-100 img-fluid"
                                 style="
-                                    object-fit: contain;
-                                    height: 600px;
+                                    object-fit: cover;
+                                    height: 620px;
                                     background-color: #ed1848;
                                 "
                             />
@@ -138,7 +138,7 @@
         </div>
         <hr />
         <br />
-        <div style="max-width: 720px; margin-right: auto; margin-left: auto;">
+        <!-- <div style="max-width: 720px; margin-right: auto; margin-left: auto;">
             <h6>
                 Share this Article
             </h6>
@@ -146,7 +146,7 @@
                 <i class="fab fa-facebook-f share" style="color: #3b5998;"></i>
                 <i class="fab fa-twitter share" style="color: #1da1f2;"></i>
             </div>
-        </div>
+        </div> -->
     </div>
 </div>
 
