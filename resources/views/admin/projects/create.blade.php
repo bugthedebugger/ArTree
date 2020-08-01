@@ -72,7 +72,7 @@ New Project
                 
                 <div class="form-group row">
                     <label for="isEvent" class="col-sm-2 col-form-label font-weight-bold">
-                        Choose Post Location
+                        Choose Post Location 
                     </label>
                     <div class="col-sm-10">
 
